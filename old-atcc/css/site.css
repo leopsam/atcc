@@ -1,0 +1,13 @@
+ul#lista-site{
+width: 1100px;
+margin: 0 auto;
+padding: 50px;
+overflow:hidden;
+list-style: none;
+}
+
+
+p{
+	padding: 30px;
+
+}

@@ -1,0 +1,24 @@
+fieldset#usuario {
+position: absolute;
+top: 100px;
+left: 100px;
+
+}
+
+img{
+	position: relative;
+	left:-100px;
+}
+
+input#sair{
+	
+	position: relative;
+	left:50%;
+}
+div#corpocon {
+position: absolute;
+top: 40px;
+left: 1%;
+width: 98%;
+
+}

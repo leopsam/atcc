@@ -1,0 +1,16 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+div#corpo{
+	position: absolute;
+	top: 40px;
+	left: 225px;
+	right: 0px;
+	
+}
+div#tcc{
+	position: absolute;
+	top: 380px;
+	left: 225px;
+	right: 0px;
+	z-index: 110;
+	
+}
