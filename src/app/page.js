@@ -1,36 +1,43 @@
 import Image from "next/image";
 import obj from "./public/img/obj.jpg";
 import cont from "./public/img/cont.jpg";
+import vers from "./public/img/vers.jpg";
 
 export default function Home() {
   return (
     <main>
       {/*------------------------------------------------------------------------------------------------------*/}
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            A.T.C.C Auxiliador de Trabalho de Conclusão de Curso
+      <nav className="navbar navbar-expand-lg custom-navbar-bg text-primary">
+        <div className="container-fluid d-flex align-items-center justify-content-around">
+          <a className="navbar-brand custom-link-text-logo m-0 p-0" href="#">
+            <h1 className="m-0 p-0 fs-1">A.T.C.C</h1>
+            <h3 className="m-0 p-0 fs-5">
+              Auxiliador de Trabalho de Conclusão de Curso
+            </h3>
           </a>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form className="d-flex" role="search">
+          <div
+            className="d-flex flex-column align-items-lg-start"
+            id="navbarSupportedContent"
+          >
+            <form className="d-flex" role="Login">
               <input
-                className="form-control me-2"
-                type="search"
+                className="form-control form-control-sm me-2"
+                type="text"
                 placeholder="Login"
-                aria-label="Search"
+                aria-label="Login"
               />
               <input
-                className="form-control me-2"
-                type="search"
+                className="form-control form-control-sm me-2"
+                type="password"
                 placeholder="Senha"
-                aria-label="Search"
+                aria-label="Senha"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-light" type="submit">
                 Entrar
               </button>
             </form>
+            <a href="#">Esqueceu sua senha?</a>
           </div>
-          <a href="#">Esqueceu sua senha?</a>
         </div>
       </nav>
       {/*------------------------------------------------------------------------------------------------------*/}
@@ -62,32 +69,49 @@ export default function Home() {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner custom-height-carousel">
           <div className="carousel-item active">
-            <Image src={obj} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
+            <div className="custom-item">
+              <Image src={obj} className="d-block w-100 image-carousel" />
+              <div className="overlay"></div>
+              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                <h1>OBJETIVO</h1>
+                <p>
+                  Ajudar na orientação do aluno disponibilizando sujestões de
+                  temas, Orientatores e todo o processo dividido em etapas,
+                  neste caminho dificio que é o T.C.C.
+                </p>
+              </div>
             </div>
           </div>
           <div className="carousel-item">
-            <Image src={cont} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
+            <div className="custom-item">
+              <Image
+                src={vers}
+                className="d-block w-100 image-carousel"
+                layout="responsive"
+              />
+              <div className="overlay"></div>
+              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                <h1>VERSATILIDADE</h1>
+                <p>
+                  O Sistema será versatil e irá funcionar em desktop e
+                  plataformas mobile, facilitando o seu uso onde você estiver.
+                </p>
+              </div>
             </div>
           </div>
           <div className="carousel-item">
-            <Image src={obj} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
+            <div className="custom-item">
+              <Image src={cont} className="d-block w-100 image-carousel" />
+              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                <h1>CONTEUDO</h1>
+                <p>
+                  O Sistema não só tem a comunicação entre aluno e orientador
+                  como tambem tem conteudos como ajuda com perguntas e respostas
+                  e uma biblioteca de arquivos.
+                </p>
+              </div>
             </div>
           </div>
         </div>

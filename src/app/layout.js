@@ -1,15 +1,22 @@
+import Script from "next/script";
 import localFont from "next/font/local";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/globals.css";
+import "./styles/styles.css";
 
 const geistSans = localFont({
-  src: "./public/fonts/GeistVF.woff",
+  src: "./public/font/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./public/fonts/GeistMonoVF.woff",
+  src: "./public/font/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 900",
+});
+const aardc = localFont({
+  src: "./public/font/aardc.woff",
+  variable: "--font-aardc",
   weight: "100 900",
 });
 
@@ -21,8 +28,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${aardc.variable}`}
+      >
         {children}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"
+        />
       </body>
     </html>
   );
