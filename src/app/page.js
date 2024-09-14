@@ -1,14 +1,16 @@
 import Image from "next/image";
-import obj from "./public/img/obj.jpg";
-import cont from "./public/img/cont.jpg";
-import vers from "./public/img/vers.jpg";
+import objDesktop from "./public/img/desktop/obj.jpg";
+import objMobile from "./public/img/mobile/obj.jpg";
+import contDesktop from "./public/img/desktop/cont.jpg";
+import contMobile from "./public/img/mobile/cont.jpg";
+import versDesktop from "./public/img/desktop/vers.jpg";
+import versMobile from "./public/img/mobile/vers.jpg";
 
 export default function Home() {
   return (
     <main>
-      {/*------------------------------------------------------------------------------------------------------*/}
       <nav className="navbar navbar-expand-lg custom-navbar-bg text-primary">
-        <div className="container-fluid d-flex align-items-center justify-content-around">
+        <div className="container-fluid d-flex justify-content-around">
           <a className="navbar-brand custom-link-text-logo m-0 p-0" href="#">
             <h1 className="m-0 p-0 fs-1">A.T.C.C</h1>
             <h3 className="m-0 p-0 fs-5">
@@ -36,12 +38,10 @@ export default function Home() {
                 Entrar
               </button>
             </form>
-            <a href="#">Esqueceu sua senha?</a>
+            <a href="/pages/adm">Esqueceu sua senha?</a>
           </div>
         </div>
       </nav>
-      {/*------------------------------------------------------------------------------------------------------*/}
-
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -69,49 +69,67 @@ export default function Home() {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner custom-height-carousel">
+        <div className="carousel-inner">
           <div className="carousel-item active">
-            <div className="custom-item">
-              <Image src={obj} className="d-block w-100 image-carousel" />
-              <div className="overlay"></div>
-              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
-                <h1>OBJETIVO</h1>
-                <p>
-                  Ajudar na orientação do aluno disponibilizando sujestões de
-                  temas, Orientatores e todo o processo dividido em etapas,
-                  neste caminho dificio que é o T.C.C.
-                </p>
-              </div>
+            <Image
+              src={objMobile}
+              className="d-block w-100 img-fluid d-md-none"
+              alt="..."
+            />
+            <Image
+              src={objDesktop}
+              className="d-block w-100 img-fluid d-none d-xl-block"
+              alt="..."
+            />
+            <div className="overlay" />
+            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+              <h1>OBJETIVO</h1>
+              <p>
+                Ajudar na orientação do aluno disponibilizando sujestões de
+                temas, Orientatores e todo o processo dividido em etapas, neste
+                caminho dificio que é o T.C.C.
+              </p>
             </div>
           </div>
           <div className="carousel-item">
-            <div className="custom-item">
-              <Image
-                src={vers}
-                className="d-block w-100 image-carousel"
-                layout="responsive"
-              />
-              <div className="overlay"></div>
-              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
-                <h1>VERSATILIDADE</h1>
-                <p>
-                  O Sistema será versatil e irá funcionar em desktop e
-                  plataformas mobile, facilitando o seu uso onde você estiver.
-                </p>
-              </div>
+            <Image
+              src={contMobile}
+              className="d-block w-100 img-fluid d-md-none"
+              alt="..."
+            />
+            <Image
+              src={contDesktop}
+              className="d-block w-100 img-fluid d-none d-xl-block"
+              alt=""
+            />
+            <div className="overlay" />
+            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+              <h1>VERSATILIDADE</h1>
+              <p>
+                O Sistema será versatil e irá funcionar em desktop e plataformas
+                mobile, facilitando o seu uso onde você estiver.
+              </p>
             </div>
           </div>
           <div className="carousel-item">
-            <div className="custom-item">
-              <Image src={cont} className="d-block w-100 image-carousel" />
-              <div className="carousel-caption d-none d-md-block custom-carousel-caption">
-                <h1>CONTEUDO</h1>
-                <p>
-                  O Sistema não só tem a comunicação entre aluno e orientador
-                  como tambem tem conteudos como ajuda com perguntas e respostas
-                  e uma biblioteca de arquivos.
-                </p>
-              </div>
+            <Image
+              src={versMobile}
+              className="d-block w-100 img-fluid d-md-none"
+              alt="..."
+            />
+            <Image
+              src={versDesktop}
+              className="d-block w-100 img-fluid d-none d-xl-block"
+              alt=""
+            />
+            <div className="overlay" />
+            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+              <h1>CONTEUDO</h1>
+              <p>
+                O Sistema não só tem a comunicação entre aluno e orientador como
+                tambem tem conteudos como ajuda com perguntas e respostas e uma
+                biblioteca de arquivos.
+              </p>
             </div>
           </div>
         </div>
@@ -140,18 +158,11 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
-      <div>
-        <h1>OBJETIVO</h1>
-        <p>
-          asd asd asdasd asd asdas dasd asd asd asd as dasdasd asda sdas d asd
-          sad asd asd
-        </p>
+      <div className="m-5 ">
+        <footer>
+          <p>&copy; 2016 UNIABEU. &middot; Leonardo Pereira Sampaio</p>
+        </footer>
       </div>
-      {/*------------------------------------------------------------------------------------------------------*/}
-      <footer>
-        <p>todos os direitos reservadoas</p>
-      </footer>
     </main>
   );
 }

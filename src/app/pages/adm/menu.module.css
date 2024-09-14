@@ -1,0 +1,12 @@
+.dashboard {
+  height: 91vh;
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 15px;
+}
+.customTable {
+  margin: 120px;
+}
+.CustomFont {
+  font-size: 12px;
+}
