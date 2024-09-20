@@ -10,3 +10,7 @@
 .CustomFont {
   font-size: 12px;
 }
+.FormWidth {
+  width: 50%;
+  color: black;
+}
