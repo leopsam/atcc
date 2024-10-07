@@ -1,10 +1,10 @@
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+
 import db from '@/utils/db'; // assumindo que você já configurou o prisma
 
 export default async function handler(req, res) {
-    console.log("passou aqui 1")
+    console.log('passou aqui 1');
     const { userId } = req.query;
-
 
     // Consulta o usuário no banco de dados
     const user = await db.user.findUnique({
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         },
     });
 
-    console.log(user)
+    console.log(user);
 
     if (!user) {
         return res.status(404).json({ error: 'Usuário não encontrado' });

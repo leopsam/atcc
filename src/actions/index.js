@@ -2,7 +2,6 @@
 import bcrypt from 'bcrypt';
 import translate from 'translate';
 import { z } from 'zod';
-
 import db from '@/utils/db';
 import { userSchema } from '@/utils/schemas/userSchema';
 import userDefault from '@/utils/userDefault';

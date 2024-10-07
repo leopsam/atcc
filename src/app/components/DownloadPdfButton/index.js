@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
 export default function DownloadPdfButton({ userId }) {
     const downloadPdf = async () => {
-        console.log(userId)
+        console.log(userId);
         const response = await fetch(`/api/user-pdf?userId=${userId}`);
         const blob = await response.blob();
         const link = document.createElement('a');

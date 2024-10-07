@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import { createUser } from '@/actions';
 import InputImageBase64 from '@/app/components/ImageBase64';
 
