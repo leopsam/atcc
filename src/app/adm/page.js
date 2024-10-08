@@ -5,7 +5,7 @@ export default async function Page() {
 
     return (
         <section className="dashboard-adm">
-            <div className="text-black bg-body-secondary pt-5 pb-4 px-3">
+            <div className="text-black bg-primary-subtle pt-5 pb-4 px-3">
                 <h1 className="fs-2">Bem vindo {session?.user?.name} ao ATCC</h1>
                 <p className="fs-6">
                     Este é um sistema que revoluciona o modo de gerir os trabalhos de conclusão de curso, oferecendo ferramentas de administração e controle.

@@ -7,7 +7,6 @@
     "endOfLine": "auto",
     "bracketSpacing": true,
     "importOrder": ["^[a-z]", "^@?\\w"],
-    "importOrderSeparation": true,
-    "printWidth": 160,
-    "importOrderSortSpecifiers": true
+    "importOrderSeparation": false,
+    "printWidth": 160
 }

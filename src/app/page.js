@@ -34,7 +34,7 @@ export default async function Home() {
                             <div className="d-flex flex-column align-items-lg-start m-2">
                                 <SigninForm />
 
-                                <a href="#" className="p-0" data-bs-toggle="modal" data-bs-target="#modalRecoverPassword">
+                                <a href="#" className="p-0 text-light" data-bs-toggle="modal" data-bs-target="#modalRecoverPassword">
                                     Esqueceu sua senha?
                                 </a>
                             </div>
@@ -66,7 +66,7 @@ export default async function Home() {
                                 alt="Imagem do carrossel contexto objetivo, para desktop"
                             />
                             <div className="overlay" />
-                            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                            <div className="carousel-caption d-md-block custom-carousel-caption">
                                 <h1>OBJETIVO</h1>
                                 <p>
                                     Ajudar na orientação do aluno disponibilizando sujestões de temas, Orientatores e todo o processo dividido em etapas, neste
@@ -86,7 +86,7 @@ export default async function Home() {
                                 alt="Imagem do carrossel contexto versatilidade, para desktop"
                             />
                             <div className="overlay" />
-                            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                            <div className="carousel-caption d-md-block custom-carousel-caption">
                                 <h1>VERSATILIDADE</h1>
                                 <p>O Sistema será versatil e irá funcionar em desktop e plataformas mobile, facilitando o seu uso onde você estiver.</p>
                             </div>
@@ -99,7 +99,7 @@ export default async function Home() {
                                 alt="Imagem do carrossel contexto conteudo, para desktop"
                             />
                             <div className="overlay" />
-                            <div className="carousel-caption d-none d-md-block custom-carousel-caption">
+                            <div className="carousel-caption d-md-block custom-carousel-caption">
                                 <h1>CONTEUDO</h1>
                                 <p>
                                     O Sistema não só tem a comunicação entre aluno e orientador como tambem tem conteudos como ajuda com perguntas e respostas e

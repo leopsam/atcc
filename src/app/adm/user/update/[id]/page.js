@@ -1,14 +1,14 @@
 'use client';
 import { useState } from 'react';
 
-import { createUserActions } from '@/actions/createUserActions';
+import { updateUserActions } from '@/actions/updateUserActions';
 import InputImageBase64 from '@/app/components/ImageBase64';
 
-export default function Page() {
+export default function Page({ params }) {
     const [message, setMessage] = useState(null);
 
     const handleSubmit = async (formData) => {
-        const response = await createUserActions(formData);
+        const response = await updateUserActions(params.id, formData);
         if (!response.success) {
             setMessage(response.message);
         } else {
@@ -18,19 +18,24 @@ export default function Page() {
 
     return (
         <main>
-            <section className="dashboard-adm p-3">
-                <h1 className="text-black">Cadastro de usuário</h1>
+            <section className="dashboard-adm p-3 align-items-center">
+                <h1 className="text-black">Editando Usuários: </h1>
+                <h2 className="p-1">ID: {params.id}</h2>
                 {message &&
                     (message === true ? (
                         <div className="alert alert-success" role="alert">
-                            Usuário criado com sucesso!
+                            Usuário atualizado com sucesso!
                         </div>
                     ) : (
                         <div className="alert alert-danger" role="alert">
                             {message}
                         </div>
                     ))}
-                <form className="row g-3 text-black w-75" action={handleSubmit}>
+                <form className="row g-2 text-black w-75" action={handleSubmit}>
+                    <hr />
+                    <div className="d-flex align-items-center">
+                        {/*<Image className="border border-black" src={user.photo} width={80} height={80} alt="Picture of the author" />*/}
+                    </div>
                     <div className="col-md-6 d-flex align-items-center">
                         <label htmlFor="matricula" className="form-label m-0 p-0 fs-6">
                             Matricula:
@@ -139,7 +144,7 @@ export default function Page() {
                     <InputImageBase64 />
                     <div className="col-12 d-flex align-items-center">
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                            Cadastrar
+                            Salvar
                         </button>
                     </div>
                 </form>

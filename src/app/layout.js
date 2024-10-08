@@ -1,12 +1,12 @@
+import { ToastContainer } from 'react-toastify';
+import localFont from 'next/font/local';
+import Script from 'next/script';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './../styles/globals.css';
 import './../styles/styles.css';
-
-import localFont from 'next/font/local';
-import Script from 'next/script';
-import { ToastContainer } from 'react-toastify';
 
 const geistSans = localFont({
     src: './../public/font/GeistVF.woff',

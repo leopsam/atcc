@@ -1,6 +1,6 @@
 {
     "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:prettier/recommended"],
-    "plugins": ["prettier", "simple-import-sort"],
+    "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": [
             "error",
@@ -14,9 +14,9 @@
                 "printWidth": 160
             }
         ],
-        "simple-import-sort/imports": "error",
-        "simple-import-sort/exports": "error",
+
         "no-unused-vars": "warn",
-        "no-console": "warn"
+        "no-console": "warn",
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }]
     }
 }

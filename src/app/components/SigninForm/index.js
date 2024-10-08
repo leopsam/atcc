@@ -1,6 +1,6 @@
 'use client';
-import { signIn } from 'next-auth/react';
 import { toast } from 'react-toastify';
+import { signIn } from 'next-auth/react';
 
 export default function LoginForm() {
     async function login(e) {
@@ -49,16 +49,6 @@ export default function LoginForm() {
                     progress: undefined,
                 });
             }
-        } else {
-            toast.error('Login falhou', {
-                position: 'bottom-center',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
         }
     }
 

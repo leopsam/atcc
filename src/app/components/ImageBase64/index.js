@@ -27,7 +27,7 @@ export default function InputImageBase64() {
                     <div className="col-12 align-items-center">
                         <label className="form-label m-0 p-0 fs-6">Foto em base64:</label>
 
-                        <textarea value={imageBase64} className="form-control mx-2 form-control-sm" rows="5" id="photo" name="photo"></textarea>
+                        <textarea defaultValue={imageBase64} className="form-control mx-2 form-control-sm" rows="5" id="photo" name="photo"></textarea>
                     </div>
                 )}
                 <hr />
