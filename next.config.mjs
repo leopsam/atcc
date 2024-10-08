@@ -3,10 +3,10 @@ const nextConfig = {
     productionBrowserSourceMaps: false,
     webpack: (config, { dev, isServer }) => {
         if (!dev && !isServer) {
-            config.devtool = false;
+            config.devtool = false
         }
-        return config;
+        return config
     },
-};
+}
 
-export default nextConfig;
+export default nextConfig

@@ -1,5 +1,5 @@
-import Navbar from './components/Navbar';
-import Home from './components/ThemeCreat';
+import Navbar from './components/Navbar'
+import Home from './components/ThemeCreat'
 
 export default function Adm() {
     return (
@@ -7,5 +7,5 @@ export default function Adm() {
             <Navbar />
             <Home />
         </main>
-    );
+    )
 }

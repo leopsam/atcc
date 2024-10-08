@@ -1,12 +1,13 @@
 {
     "tabWidth": 4,
     "useTabs": false,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "all",
     "endOfLine": "auto",
     "bracketSpacing": true,
-    "importOrder": ["^[a-z]", "^@?\\w"],
-    "importOrderSeparation": false,
-    "printWidth": 160
+    "printWidth": 160,
+    "arrowParens": "avoid",
+    "quoteProps": "as-needed",
+    "htmlWhitespaceSensitivity": "ignore"
 }

@@ -1,4 +1,4 @@
-import styles from './../../../../styles/adm.module.css';
+import styles from './../../../../styles/adm.module.css'
 
 export default function ThemeCreat() {
     return (
@@ -31,5 +31,5 @@ export default function ThemeCreat() {
                 </form>
             </section>
         </main>
-    );
+    )
 }

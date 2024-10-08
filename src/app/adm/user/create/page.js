@@ -1,20 +1,19 @@
-'use client';
-import { useState } from 'react';
-
-import { createUserActions } from '@/actions/createUserActions';
-import InputImageBase64 from '@/app/components/ImageBase64';
+'use client'
+import { useState } from 'react'
+import { createUserActions } from '@/actions/createUserActions'
+import InputImageBase64 from '@/app/components/ImageBase64'
 
 export default function Page() {
-    const [message, setMessage] = useState(null);
+    const [message, setMessage] = useState(null)
 
-    const handleSubmit = async (formData) => {
-        const response = await createUserActions(formData);
+    const handleSubmit = async formData => {
+        const response = await createUserActions(formData)
         if (!response.success) {
-            setMessage(response.message);
+            setMessage(response.message)
         } else {
-            setMessage(true);
+            setMessage(true)
         }
-    };
+    }
 
     return (
         <main>
@@ -145,5 +144,5 @@ export default function Page() {
                 </form>
             </section>
         </main>
-    );
+    )
 }

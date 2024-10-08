@@ -1,19 +1,19 @@
-'use client';
-import { useState } from 'react';
+'use client'
+import { useState } from 'react'
 
 export default function InputImageBase64() {
-    const [imageBase64, setImageBase64] = useState('');
+    const [imageBase64, setImageBase64] = useState('')
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
+    const handleFileChange = e => {
+        const file = e.target.files[0]
         if (file) {
-            const reader = new FileReader();
+            const reader = new FileReader()
             reader.onloadend = () => {
-                setImageBase64(reader.result);
-            };
-            reader.readAsDataURL(file);
+                setImageBase64(reader.result)
+            }
+            reader.readAsDataURL(file)
         }
-    };
+    }
     return (
         <>
             <div className="col-12 align-items-center">
@@ -33,5 +33,5 @@ export default function InputImageBase64() {
                 <hr />
             </div>
         </>
-    );
+    )
 }

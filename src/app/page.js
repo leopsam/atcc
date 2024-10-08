@@ -1,13 +1,11 @@
-import Image from 'next/image';
-
-import SigninForm from '@/app/components/SigninForm';
-
-import contDesktop from './../public/img/desktop/cont.jpg';
-import objDesktop from './../public/img/desktop/obj.jpg';
-import versDesktop from './../public/img/desktop/vers.jpg';
-import contMobile from './../public/img/mobile/cont.jpg';
-import objMobile from './../public/img/mobile/obj.jpg';
-import versMobile from './../public/img/mobile/vers.jpg';
+import Image from 'next/image'
+import contDesktop from './../public/img/desktop/cont.jpg'
+import objDesktop from './../public/img/desktop/obj.jpg'
+import versDesktop from './../public/img/desktop/vers.jpg'
+import contMobile from './../public/img/mobile/cont.jpg'
+import objMobile from './../public/img/mobile/obj.jpg'
+import versMobile from './../public/img/mobile/vers.jpg'
+import SigninForm from '@/app/components/SigninForm'
 
 export default async function Home() {
     return (
@@ -168,5 +166,5 @@ export default async function Home() {
                 </div>
             </div>
         </>
-    );
+    )
 }

@@ -1,4 +1,4 @@
-import Navbar from './navbar/page';
+import Navbar from './navbar/page'
 
 export default function StudentLayout({ children }) {
     return (
@@ -6,5 +6,5 @@ export default function StudentLayout({ children }) {
             <Navbar />
             {children}
         </main>
-    );
+    )
 }

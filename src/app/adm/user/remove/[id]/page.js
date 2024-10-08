@@ -1,13 +1,12 @@
-'use client';
-import { useRouter } from 'next/navigation';
-
-import removeUserActions from '@/actions/removeUserActions';
+'use client'
+import { useRouter } from 'next/navigation'
+import removeUserActions from '@/actions/removeUserActions'
 
 export default function Page({ params }) {
-    const router = useRouter();
+    const router = useRouter()
     async function handleRemove() {
-        await removeUserActions(params.id);
-        router.push('/adm/user/read');
+        await removeUserActions(params.id)
+        router.push('/adm/user/read')
     }
     return (
         <div class="card m-5">
@@ -23,5 +22,5 @@ export default function Page({ params }) {
                 </button>
             </div>
         </div>
-    );
+    )
 }

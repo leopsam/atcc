@@ -1,14 +1,13 @@
-'use serve';
-import { revalidatePath } from 'next/cache';
-
-import db from '@/utils/db';
+'use serve'
+import { revalidatePath } from 'next/cache'
+import db from '@/utils/db'
 
 export async function allUsersService() {
     try {
-        const users = await db.user.findMany();
-        return { data: users };
+        const users = await db.user.findMany()
+        return { data: users }
     } catch (error) {
-        return { data: [] };
+        return { data: [] }
     }
 }
 
@@ -16,13 +15,13 @@ export async function createUserService(validatedData) {
     try {
         await db.user.create({
             data: validatedData,
-        });
-        return { success: true, message: 'Usuário criado com sucesso' };
+        })
+        return { success: true, message: 'Usuário criado com sucesso' }
     } catch (error) {
         if (error.code === 'P2002') {
-            return { success: false, message: 'Usuário já existe com este dado único --' + error.meta.target + '--' };
+            return { success: false, message: 'Usuário já existe com este dado único --' + error.meta.target + '--' }
         }
-        return { success: false, message: 'Erro ao criar usuário.' };
+        return { success: false, message: 'Erro ao criar usuário.' }
     }
 }
 
@@ -32,16 +31,16 @@ export async function getUserByIdService(id) {
             where: {
                 id,
             },
-        });
+        })
         if (!user) {
-            return { success: false, message: 'Usuário não encontrado' };
+            return { success: false, message: 'Usuário não encontrado' }
         }
-        return { success: true, data: user };
+        return { success: true, data: user }
     } catch (error) {
         if (error.code === 'P2002') {
-            return { success: false, message: 'Erro de unicidade' };
+            return { success: false, message: 'Erro de unicidade' }
         }
-        return { success: false, message: 'Erro ao buscar usuário' };
+        return { success: false, message: 'Erro ao buscar usuário' }
     }
 }
 
@@ -52,14 +51,14 @@ export async function updateUserByIdService(id, validatedData) {
                 id,
             },
             data: validatedData,
-        });
+        })
 
-        return { success: true, message: 'Usuário atualizado com sucesso', data: updateUser };
+        return { success: true, message: 'Usuário atualizado com sucesso', data: updateUser }
     } catch (error) {
         if (error.code === 'P2002') {
-            return { success: false, message: 'Erro de unicidade ao atualizar usuário --' + error.meta.target + '--' };
+            return { success: false, message: 'Erro de unicidade ao atualizar usuário --' + error.meta.target + '--' }
         }
-        return { success: false, message: 'Erro ao atualizar usuário' };
+        return { success: false, message: 'Erro ao atualizar usuário' }
     }
 }
 
@@ -69,15 +68,15 @@ export async function deleteUserByIdService(id) {
             where: {
                 id,
             },
-        });
+        })
 
-        revalidatePath('/adm/user/read');
+        revalidatePath('/adm/user/read')
 
-        return { success: true, message: 'Usuário deletado com sucesso' };
+        return { success: true, message: 'Usuário deletado com sucesso' }
     } catch (error) {
         if (error.code === 'P2002') {
-            return { success: false, message: 'Erro de unicidade ao deletar usuário --' + error.meta.target + '--' };
+            return { success: false, message: 'Erro de unicidade ao deletar usuário --' + error.meta.target + '--' }
         }
-        return { success: false, message: 'Erro ao deletar usuário' };
+        return { success: false, message: 'Erro ao deletar usuário' }
     }
 }

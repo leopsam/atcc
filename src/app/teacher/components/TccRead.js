@@ -83,5 +83,5 @@ export default function TccRead() {
                 </div>
             </section>
         </main>
-    );
+    )
 }

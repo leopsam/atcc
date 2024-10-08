@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
-import perfil from './../../../../public/prof.jpg';
+import Image from 'next/image'
+import perfil from './../../../../public/prof.jpg'
 
 export default function Navbar() {
     return (
@@ -95,5 +94,5 @@ export default function Navbar() {
                 </div>
             </div>
         </>
-    );
+    )
 }

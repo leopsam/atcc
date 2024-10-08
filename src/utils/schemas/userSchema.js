@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
 export const userSchema = z.object({
     matriculation: z.string().min(1, { message: 'Matrícula é obrigatória' }),
@@ -14,4 +14,4 @@ export const userSchema = z.object({
     username: z.string().min(1, { message: 'Username é obrigatório' }),
     password: z.string().min(8, { message: 'Senha deve ter pelo menos 8 caracteres' }),
     photo: z.string().optional(),
-});
+})

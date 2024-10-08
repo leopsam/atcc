@@ -1,4 +1,4 @@
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export default function Page() {
     return (
@@ -44,5 +44,5 @@ export default function Page() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

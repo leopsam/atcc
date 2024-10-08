@@ -47,5 +47,5 @@ export default function updateUser() {
                 </form>
             </div>
         </section>
-    );
+    )
 }

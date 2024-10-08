@@ -1,4 +1,4 @@
-import styles from './../../../../styles/adm.module.css';
+import styles from './../../../../styles/adm.module.css'
 
 export default function UserRead() {
     return (
@@ -89,5 +89,5 @@ export default function UserRead() {
                 </table>
             </section>
         </main>
-    );
+    )
 }

@@ -1,7 +1,6 @@
-import Image from 'next/image';
-
-import imgteste from './../../../public/books/html2.png';
-import imgteste2 from './../../../public/img/desktop/obj.jpg';
+import Image from 'next/image'
+import imgteste from './../../../public/books/html2.png'
+import imgteste2 from './../../../public/img/desktop/obj.jpg'
 
 export default function Page() {
     return (
@@ -251,5 +250,5 @@ export default function Page() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

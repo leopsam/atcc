@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
-import SignoutButtonAdm from '@/app/components/SignoutButtonAdm';
+import Link from 'next/link'
+import SignoutButtonAdm from '@/app/components/SignoutButtonAdm'
 
 export default function Navbar() {
     return (
@@ -61,5 +60,5 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
-    );
+    )
 }

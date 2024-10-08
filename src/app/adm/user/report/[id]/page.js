@@ -1,9 +1,8 @@
-import Image from 'next/image';
-
-import { getUserByIdService } from '@/app/services/userService';
+import Image from 'next/image'
+import { getUserByIdService } from '@/app/services/userService'
 
 export default async function getUserById({ params }) {
-    const { data: user } = await getUserByIdService(params.id);
+    const { data: user } = await getUserByIdService(params.id)
 
     return (
         <main>
@@ -46,5 +45,5 @@ export default async function getUserById({ params }) {
                 </div>
             </section>
         </main>
-    );
+    )
 }

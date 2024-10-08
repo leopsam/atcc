@@ -43,5 +43,5 @@ export default function ThemeReadAll() {
                 </div>
             </section>
         </main>
-    );
+    )
 }

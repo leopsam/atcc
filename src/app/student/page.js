@@ -25,5 +25,5 @@ export default function AlunoDashboard() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

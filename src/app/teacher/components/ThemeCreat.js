@@ -28,5 +28,5 @@ export default function ThemeCreat() {
                 </div>
             </section>
         </main>
-    );
+    )
 }

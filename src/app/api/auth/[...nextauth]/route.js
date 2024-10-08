@@ -1,8 +1,7 @@
-import bcrypt from 'bcrypt';
-import NextAuth from 'next-auth/next';
-import CredentialsProvider from 'next-auth/providers/credentials';
-
-import db from '@/utils/db';
+import bcrypt from 'bcrypt'
+import NextAuth from 'next-auth/next'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import db from '@/utils/db'
 
 const handler = NextAuth({
     pages: {
@@ -16,20 +15,20 @@ const handler = NextAuth({
                 password: { label: 'Password', type: 'password', id: 'password' },
             },
             async authorize(credentials) {
-                if (!credentials) throw new Error('Credenciais não fornecidas');
+                if (!credentials) throw new Error('Credenciais não fornecidas')
 
                 const user = await db.user.findUnique({
                     where: {
                         username: credentials.username,
                     },
-                });
+                })
 
-                if (!user) throw new Error('Usuário e senha inválidos');
+                if (!user) throw new Error('Usuário e senha inválidos')
 
-                const isValidPassword = await bcrypt.compare(credentials.password, user.password);
+                const isValidPassword = await bcrypt.compare(credentials.password, user.password)
 
                 if (!isValidPassword) {
-                    throw new Error('Usuário e senha inválidos');
+                    throw new Error('Usuário e senha inválidos')
                 }
 
                 return {
@@ -37,25 +36,25 @@ const handler = NextAuth({
                     name: user.name,
                     email: user.email,
                     role: user.role,
-                };
+                }
             },
         }),
     ],
     callbacks: {
         async session({ session, token }) {
             if (token?.role) {
-                session.user.role = token.role;
+                session.user.role = token.role
             }
-            return session;
+            return session
         },
         async jwt({ token, user }) {
             if (user) {
-                token.role = user.role;
+                token.role = user.role
             }
-            return token;
+            return token
         },
     },
     secret: process.env.NEXTAUTH_SECRET,
-});
+})
 
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST }

@@ -1,9 +1,8 @@
-import Link from 'next/link';
-
-import { allUsersService } from '@/app/services/userService';
+import Link from 'next/link'
+import { allUsersService } from '@/app/services/userService'
 
 export default async function Page() {
-    const { data: users } = await allUsersService();
+    const { data: users } = await allUsersService()
 
     return (
         <main>
@@ -21,7 +20,7 @@ export default async function Page() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {users.map(user => (
                             <tr key={user.id}>
                                 <td>{user.matriculation}</td>
                                 <td>{user.name}</td>
@@ -45,5 +44,5 @@ export default async function Page() {
                 </table>
             </section>
         </main>
-    );
+    )
 }

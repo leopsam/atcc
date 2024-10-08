@@ -6,17 +6,29 @@
             "error",
             {
                 "tabWidth": 4,
-                "semi": true,
+                "useTabs": false,
+                "semi": false,
                 "singleQuote": true,
                 "trailingComma": "all",
                 "endOfLine": "auto",
                 "bracketSpacing": true,
-                "printWidth": 160
+                "printWidth": 160,
+                "arrowParens": "avoid",
+                "quoteProps": "as-needed",
+                "htmlWhitespaceSensitivity": "ignore"
             }
         ],
-
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "sibling", "parent", "index"],
+                "newlines-between": "never",
+                "alphabetize": { "order": "asc", "caseInsensitive": true }
+            }
+        ],
+        "padding-line-between-statements": ["error", { "blankLine": "never", "prev": "import", "next": "import" }],
         "no-unused-vars": "warn",
         "no-console": "warn",
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }]
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }]
     }
 }

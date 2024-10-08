@@ -1,21 +1,21 @@
-'use client';
-import { toast } from 'react-toastify';
-import { signIn } from 'next-auth/react';
+'use client'
+import { signIn } from 'next-auth/react'
+import { toast } from 'react-toastify'
 
 export default function LoginForm() {
     async function login(e) {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget)
 
         const data = {
             username: formData.get('username'),
             password: formData.get('password'),
-        };
+        }
 
         const res = await signIn('credentials', {
             ...data,
             redirect: false,
-        });
+        })
 
         if (res?.error) {
             toast.error(res.error, {
@@ -26,18 +26,18 @@ export default function LoginForm() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-            });
+            })
         }
 
         if (res.ok) {
-            const session = await fetch('/api/auth/session').then((res) => res.json());
+            const session = await fetch('/api/auth/session').then(res => res.json())
 
             if (session?.user?.role === 'STUDENT') {
-                window.location.href = '/student';
+                window.location.href = '/student'
             } else if (session?.user?.role === 'TEACHER') {
-                window.location.href = '/teacher';
+                window.location.href = '/teacher'
             } else if (session?.user?.role === 'ADMIN') {
-                window.location.href = '/adm';
+                window.location.href = '/adm'
             } else {
                 toast.error('Usuário desconhecido', {
                     position: 'bottom-center',
@@ -47,7 +47,7 @@ export default function LoginForm() {
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                });
+                })
             }
         }
     }
@@ -60,5 +60,5 @@ export default function LoginForm() {
                 Entrar
             </button>
         </form>
-    );
+    )
 }

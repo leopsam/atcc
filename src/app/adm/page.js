@@ -1,7 +1,7 @@
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth'
 
 export default async function Page() {
-    const session = await getServerSession();
+    const session = await getServerSession()
 
     return (
         <section className="dashboard-adm">
@@ -28,5 +28,5 @@ export default async function Page() {
                 </div>
             </div>
         </section>
-    );
+    )
 }

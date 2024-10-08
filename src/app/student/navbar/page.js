@@ -1,13 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { getServerSession } from 'next-auth';
-
-import SignoutButton from '@/app/components/SignoutButton';
-
-import perfil from './../../../public/perfil.jpg';
+import Image from 'next/image'
+import Link from 'next/link'
+import { getServerSession } from 'next-auth'
+import perfil from './../../../public/perfil.jpg'
+import SignoutButton from '@/app/components/SignoutButton'
 
 export default async function Page() {
-    const session = await getServerSession();
+    const session = await getServerSession()
 
     return (
         <>
@@ -112,5 +110,5 @@ export default async function Page() {
                 </div>
             </nav>
         </>
-    );
+    )
 }
