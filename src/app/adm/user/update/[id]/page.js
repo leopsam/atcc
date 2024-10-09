@@ -2,8 +2,8 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { updateUserActions } from '@/actions/updateUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import { updateUserActions } from '@/actions/user/updateUserActions'
 
 export default function Page({ params }) {
     const [message, setMessage] = useState(null)
@@ -160,7 +160,7 @@ export default function Page({ params }) {
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Salvar
                         </button>
-                        <ButtonBack />
+                        <ButtonBack href={"/adm/user/read"} />
                     </div>
                 </form>
 

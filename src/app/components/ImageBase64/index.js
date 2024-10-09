@@ -18,14 +18,11 @@ export default function InputImageBase64() {
                 img.onload = () => {
                     const canvas = document.createElement('canvas')
                     const ctx = canvas.getContext('2d')
-
-                    // Defina as dimensões máximas da imagem
                     const MAX_WIDTH = 800
                     const MAX_HEIGHT = 600
                     let width = img.width
                     let height = img.height
 
-                    // Redimensionar a imagem de forma proporcional
                     if (width > height) {
                         if (width > MAX_WIDTH) {
                             height *= MAX_WIDTH / width
@@ -42,10 +39,7 @@ export default function InputImageBase64() {
                     canvas.height = height
                     ctx.drawImage(img, 0, 0, width, height)
 
-                    // Converter para Base64 com qualidade reduzida
-                    const base64String = canvas.toDataURL('image/jpeg', 0.7) // Qualidade de 0 a 1
-
-                    // Atualizar os estados com a string Base64 e a URL de pré-visualização
+                    const base64String = canvas.toDataURL('image/jpeg', 0.7)
                     setImageBase64(base64String)
                     setPreviewUrl(base64String)
                 }
@@ -77,7 +71,7 @@ export default function InputImageBase64() {
                                 Pré-visualização da imagem:
                             </label>
                         </div>
-                        <Image className=" mx-2 border border-white border-4 rounded" src={previewUrl} alt="Preview" width={200} height={200} />
+                        <Image className=" mx-2 border border-white border-4 object-fit-cover rounded" src={previewUrl} alt="Preview" width={200} height={200} />
                     </>
                 )}
 

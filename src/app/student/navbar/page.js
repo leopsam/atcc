@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import perfil from './../../../public/perfil.jpg'
-import SignoutButton from '@/app/components/SignoutButton'
+import SignoutButtonUsers from '@/app/components/SignoutButtonUsers'
 
 export default async function Page() {
     const session = await getServerSession()
@@ -106,7 +106,7 @@ export default async function Page() {
                     <Link className="btn btn-secondary w-100 rounded-0 my-2 text-white" href="/student/user/settings">
                         Editar perfil
                     </Link>
-                    <SignoutButton />
+                    <SignoutButtonUsers />
                 </div>
             </nav>
         </>

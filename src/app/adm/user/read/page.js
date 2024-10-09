@@ -1,5 +1,6 @@
-import ButtonUsersTable from '@/app/components/ButtonUsersTable'
+import ButtonsTable from '@/app/components/ButtonsTable'
 import { allUsersService } from '@/app/services/userService'
+import Image from 'next/image'
 
 export default async function Page() {
     const { data: users } = await allUsersService()
@@ -11,6 +12,7 @@ export default async function Page() {
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
+                            <th scope="col">Foto</th>
                             <th scope="col">Matricula</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Perfil</th>
@@ -22,15 +24,16 @@ export default async function Page() {
                     <tbody>
                         {users.map(user => (
                             <tr key={user.id}>
+                                <td className="text-center"><Image src={user.photo} className="card-img-top object-fit-cover rounded-circle img-table" width={70} height={70} alt="Picture of the author" /></td>
                                 <td>{user.matriculation}</td>
                                 <td>{user.name}</td>
                                 <td>{user.role}</td>
                                 <td>{user.cpf}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <ButtonUsersTable href={`/adm/user/update/${user.id}`}>Editar</ButtonUsersTable>
-                                    <ButtonUsersTable href={`/adm/user/report/${user.id}`}>Relatório</ButtonUsersTable>
-                                    <ButtonUsersTable href={`/adm/user/remove/${user.id}`}>Deletar</ButtonUsersTable>
+                                    <ButtonsTable href={`/adm/user/update/${user.id}`}>Editar</ButtonsTable>
+                                    <ButtonsTable href={`/adm/user/report/${user.id}`}>Relatório</ButtonsTable>
+                                    <ButtonsTable href={`/adm/user/remove/${user.id}`}>Deletar</ButtonsTable>
                                 </td>
                             </tr>
                         ))}

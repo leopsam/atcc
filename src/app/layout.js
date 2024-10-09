@@ -1,5 +1,6 @@
 import localFont from 'next/font/local'
 import { ToastContainer } from 'react-toastify'
+import Script from 'next/script'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'react-toastify/dist/ReactToastify.css'
@@ -33,6 +34,11 @@ export default function RootLayout({ children }) {
                 <ToastContainer />
                 {children}
             </body>
+            <Script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous"
+            />
         </html>
     )
 }

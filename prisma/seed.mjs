@@ -63,10 +63,26 @@ async function main() {
             photo: userDefault,
         },
     })
+    const themeOne = await prisma.theme.upsert({
+        where: { name: 'A Transformação Digital nas Microempresas: Desafios e Oportunidades no Brasil' },
+        update: {},
+        create: {
+            name: 'A Transformação Digital nas Microempresas: Desafios e Oportunidades no Brasil',
+            description: 'Este trabalho tem como objetivo investigar os impactos da transformação digital nas microempresas brasileiras, analisando como a adoção de novas tecnologias pode influenciar a competitividade, produtividade e inovação desses pequenos negócios. A pesquisa buscará identificar os principais desafios enfrentados por microempresários para implementar soluções digitais, como e-commerce, marketing digital e ferramentas de gestão, além de explorar as oportunidades que a digitalização pode trazer para a expansão e sustentabilidade dessas empresas em um mercado cada vez mais digital e conectado.',
+        },
+    })
+    const themeTwo = await prisma.theme.upsert({
+        where: { name: 'Sustentabilidade e Inovação: O Uso de Materiais Recicláveis na Indústria da Construção Civil' },
+        update: {},
+        create: {
+            name: 'Sustentabilidade e Inovação: O Uso de Materiais Recicláveis na Indústria da Construção Civil',
+            description: 'Este trabalho visa explorar o papel dos materiais recicláveis na inovação e sustentabilidade da construção civil, um dos setores que mais impactam o meio ambiente. O estudo tem como objetivo analisar os benefícios e desafios da adoção de materiais recicláveis na construção de edifícios, investigando seu impacto em termos de redução de resíduos, eficiência energética e custo-benefício para empresas e consumidores.',
+        },
+    })
     // eslint-disable-next-line
     console.log('Users created successfully!')
     // eslint-disable-next-line
-    console.log({ joao, maria, admin })
+    console.log({ joao, maria, admin, themeOne, themeTwo })
 }
 main()
     .then(async () => {
