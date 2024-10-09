@@ -5,28 +5,28 @@ export default function Page() {
         <section className="dashboard">
             <div className="px-4 py-5">
                 <h1 className="text-black fs-4">Imformações TCC</h1>
-                <div class="card">
-                    <div class="card-body text-bg-secondary">
-                        <h5 class="card-title">Smart Cities</h5>
-                        <p class="card-text">
+                <div className="card">
+                    <div className="card-body text-bg-secondary">
+                        <h5 className="card-title">Smart Cities</h5>
+                        <p className="card-text">
                             <strong>Descrição do tema: </strong>Gastar menos e oferecer melhores servicos: esse eh o objetivo das cidades do futuro. Como
                             conseguir isso? Implementando hardware e softwares de baixo nivel, propondo novas arquiteturas de servico, manipulando grandes bases
                             de dados e integrando solucoes tecnologicas a outras areas de conhecimento.
                         </p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
                             <strong>Orientador: </strong>Leonardo Sampaio
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                             <strong>Situação do profesor: </strong>
                             Orientação Aceita
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                             <strong>Integrantes: </strong>Leonardo Pereira, Marieni Cristina
                         </li>
                     </ul>
-                    <div class="card-body">
+                    <div className="card-body">
                         <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle">
                             Editar
                         </button>

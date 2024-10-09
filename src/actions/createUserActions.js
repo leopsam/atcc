@@ -6,7 +6,17 @@ import { userSchema } from '@/utils/schemas/userSchema'
 import userDefault from '@/utils/userDefault'
 
 export async function createUserActions(formData) {
+    const photoIs = async () => {
+        if (!formData.get('photo')) {
+            return userDefault
+        } else {
+            return formData.get('photo')
+        }
+    }
+
     try {
+        const photo = await photoIs()
+
         const formDataObj = {
             matriculation: formData.get('matriculation'),
             name: formData.get('name'),
@@ -20,7 +30,7 @@ export async function createUserActions(formData) {
             address: formData.get('address'),
             username: formData.get('username'),
             password: formData.get('password'),
-            photo: formData.get('photo') ? formData.get('photo') : userDefault,
+            photo: photo,
         }
 
         const validatedData = userSchema.parse(formDataObj)

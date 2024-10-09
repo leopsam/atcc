@@ -1,24 +1,26 @@
 'use server'
 import bcrypt from 'bcrypt'
 import { z } from 'zod'
-import { updateUserByIdService } from '@/app/services/userService'
+import { getUserByIdService, updateUserByIdService } from '@/app/services/userService'
 import { userSchema } from '@/utils/schemas/userSchema'
 
 export async function updateUserActions(id, formData) {
     try {
+        const { data: user } = await getUserByIdService(id)
+
         const formDataObj = {
-            matriculation: formData.get('matriculation'),
-            name: formData.get('name'),
-            role: formData.get('role'),
-            status: formData.get('status'),
-            birthDate: formData.get('birthDate'),
-            cpf: formData.get('cpf'),
-            rg: formData.get('rg'),
-            phone: formData.get('phone'),
-            email: formData.get('email'),
-            address: formData.get('address'),
-            username: formData.get('username'),
-            password: formData.get('password'),
+            matriculation: formData.get('matriculation') || user.matriculation,
+            name: formData.get('name') || user.name,
+            role: user.role || formData.get('role'),
+            status: user.status || formData.get('status'),
+            birthDate: formData.get('birthDate') || user.birthDate,
+            cpf: formData.get('cpf') || user.cpf, // Corrigido: verifica se o valor do formData existe, caso contrário, usa user.cpf
+            rg: formData.get('rg') || user.rg,
+            phone: formData.get('phone') || user.phone,
+            email: formData.get('email') || user.email,
+            address: formData.get('address') || user.address,
+            username: formData.get('username') || user.username,
+            password: formData.get('password') || user.password,
         }
 
         const validatedData = userSchema.parse(formDataObj)

@@ -1,10 +1,14 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { createUserActions } from '@/actions/createUserActions'
+import ButtonBack from '@/app/components/ButtonBack'
 import InputImageBase64 from '@/app/components/ImageBase64'
 
 export default function Page() {
     const [message, setMessage] = useState(null)
+    const router = useRouter()
 
     const handleSubmit = async formData => {
         const response = await createUserActions(formData)
@@ -12,12 +16,27 @@ export default function Page() {
             setMessage(response.message)
         } else {
             setMessage(true)
+
+            setTimeout(() => {
+                router.push('/adm/user/read')
+            }, 2000)
+
+            toast.success('Voltando para tela de usuários', {
+                position: 'bottom-center',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: 'light',
+            })
         }
     }
 
     return (
         <main>
-            <section className="dashboard-adm p-3">
+            <section className="dashboard-adm px-3 mt-3">
                 <h1 className="text-black">Cadastro de usuário</h1>
                 {message &&
                     (message === true ? (
@@ -140,6 +159,7 @@ export default function Page() {
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Cadastrar
                         </button>
+                        <ButtonBack />
                     </div>
                 </form>
             </section>

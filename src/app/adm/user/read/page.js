@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import ButtonUsersTable from '@/app/components/ButtonUsersTable'
 import { allUsersService } from '@/app/services/userService'
 
 export default async function Page() {
@@ -6,7 +6,7 @@ export default async function Page() {
 
     return (
         <main>
-            <section className="dashboard-adm p-3">
+            <section className="dashboard-adm px-3 mt-3">
                 <h1 className="text-black">Usuários</h1>
                 <table className="table table-striped table-bordered">
                     <thead>
@@ -28,15 +28,9 @@ export default async function Page() {
                                 <td>{user.cpf}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link type="button" href={`/adm/user/update/${user.id}`} className="btn btn-secondary btn-sm mx-1 text-white">
-                                        Editar
-                                    </Link>
-                                    <Link type="button" href={`/adm/user/report/${user.id}`} className="btn btn-secondary btn-sm mx-1 text-white">
-                                        Relatório
-                                    </Link>
-                                    <Link type="button" href={`/adm/user/remove/${user.id}`} className="btn btn-secondary btn-sm mx-1 text-white">
-                                        Deletar
-                                    </Link>
+                                    <ButtonUsersTable href={`/adm/user/update/${user.id}`}>Editar</ButtonUsersTable>
+                                    <ButtonUsersTable href={`/adm/user/report/${user.id}`}>Relatório</ButtonUsersTable>
+                                    <ButtonUsersTable href={`/adm/user/remove/${user.id}`}>Deletar</ButtonUsersTable>
                                 </td>
                             </tr>
                         ))}

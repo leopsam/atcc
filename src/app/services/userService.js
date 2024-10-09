@@ -1,4 +1,3 @@
-'use serve'
 import { revalidatePath } from 'next/cache'
 import db from '@/utils/db'
 
@@ -16,6 +15,9 @@ export async function createUserService(validatedData) {
         await db.user.create({
             data: validatedData,
         })
+
+        revalidatePath('/adm/user/read')
+
         return { success: true, message: 'Usuário criado com sucesso' }
     } catch (error) {
         if (error.code === 'P2002') {
@@ -52,6 +54,8 @@ export async function updateUserByIdService(id, validatedData) {
             },
             data: validatedData,
         })
+
+        revalidatePath('/adm/user/read')
 
         return { success: true, message: 'Usuário atualizado com sucesso', data: updateUser }
     } catch (error) {

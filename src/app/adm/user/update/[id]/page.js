@@ -1,10 +1,13 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { updateUserActions } from '@/actions/updateUserActions'
-import InputImageBase64 from '@/app/components/ImageBase64'
+import ButtonBack from '@/app/components/ButtonBack'
 
 export default function Page({ params }) {
     const [message, setMessage] = useState(null)
+    const router = useRouter()
 
     const handleSubmit = async formData => {
         const response = await updateUserActions(params.id, formData)
@@ -12,18 +15,33 @@ export default function Page({ params }) {
             setMessage(response.message)
         } else {
             setMessage(true)
+
+            setTimeout(() => {
+                router.push('/adm/user/read')
+            }, 2000)
+
+            toast.success('Voltando para tela de usuários', {
+                position: 'bottom-center',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: 'light',
+            })
         }
     }
 
     return (
         <main>
-            <section className="dashboard-adm p-3 align-items-center">
+            <section className="dashboard-adm px-3 mt-3">
                 <h1 className="text-black">Editando Usuários: </h1>
                 <h2 className="p-1">ID: {params.id}</h2>
                 {message &&
                     (message === true ? (
                         <div className="alert alert-success" role="alert">
-                            Usuário atualizado com sucesso!
+                            Usuário atualizado com sucesso! Voltando Para tela de usuario...
                         </div>
                     ) : (
                         <div className="alert alert-danger" role="alert">
@@ -32,9 +50,7 @@ export default function Page({ params }) {
                     ))}
                 <form className="row g-2 text-black w-75" action={handleSubmit}>
                     <hr />
-                    <div className="d-flex align-items-center">
-                        {/*<Image className="border border-black" src={user.photo} width={80} height={80} alt="Picture of the author" />*/}
-                    </div>
+                    <div className="d-flex align-items-center"></div>
                     <div className="col-md-6 d-flex align-items-center">
                         <label htmlFor="matricula" className="form-label m-0 p-0 fs-6">
                             Matricula:
@@ -58,7 +74,7 @@ export default function Page({ params }) {
                             Perfil:
                         </label>
                         <select id="role" name="role" className="form-select mx-2 form-select-sm">
-                            <option defaultValue>Selecione</option>
+                            <option>Selecione</option>
                             <option value="STUDENT">Aluno</option>
                             <option value="TEACHER">Professor</option>
                         </select>
@@ -68,7 +84,7 @@ export default function Page({ params }) {
                             Situação:
                         </label>
                         <select id="status" name="status" className="form-select mx-2 form-select-sm">
-                            <option defaultValue>Selecione</option>
+                            <option>Selecione</option>
                             <option value="ACTIVE">Ativo</option>
                             <option value="INACTIVE">Inativo</option>
                         </select>
@@ -140,13 +156,27 @@ export default function Page({ params }) {
                         </label>
                         <input type="password" className="form-control mx-2 form-control-sm" id="password" name="password" placeholder="maximo 8 digitos" />
                     </div>
-                    <InputImageBase64 />
                     <div className="col-12 d-flex align-items-center">
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Salvar
                         </button>
+                        <ButtonBack />
                     </div>
                 </form>
+
+                <div className="card m-5">
+                    <div className="card-header">AVISO</div>
+                    <div className="card-body">
+                        <p className="card-text m-0">
+                            No processo de atualização dos dados do usuário, é possível modificar qualquer campo disponível no formulário.
+                        </p>
+                        <p className="card-text m-0">
+                            Caso algum campo não seja preenchido, o valor correspondente ao atributo não será alterado, mantendo-se o valor atual registrado no
+                            sistema.
+                        </p>
+                        <p className="card-text m-0">Isso garante que os campos não modificados durante a operação de atualização permaneçam inalterados.</p>
+                    </div>
+                </div>
             </section>
         </main>
     )

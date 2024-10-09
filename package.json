@@ -11,7 +11,7 @@
         "format": "npx prettier --write ."
     },
     "prisma": {
-        "seed": "node prisma/seed.js"
+        "seed": "node prisma/seed.mjs"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.5.3",
