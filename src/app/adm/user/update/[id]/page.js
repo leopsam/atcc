@@ -70,7 +70,7 @@ export default function Page({ params }) {
                         <input type="text" className="form-control mx-2 form-control-sm" id="name" name="name" placeholder="Nome completo" />
                     </div>
                     <div className="col-md-4 d-flex align-items-center">
-                        <label htmlFor="perfil" className="form-label m-0 p-0 fs-6">
+                        <label htmlFor="profile" className="form-label m-0 p-0 fs-6">
                             Perfil:
                         </label>
                         <select id="role" name="role" className="form-select mx-2 form-select-sm">

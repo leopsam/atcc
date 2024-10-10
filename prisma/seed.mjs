@@ -60,6 +60,44 @@ async function main() {
             photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
         },
     })
+    const studentDefault = await prisma.user.upsert({
+        where: { username: 'aluno' },
+        update: {},
+        create: {
+            matriculation: '20230004',
+            name: 'Leonardo P. Sampaio',
+            role: 'STUDENT',
+            status: 'ACTIVE',
+            birthDate: new Date('1995-09-12'),
+            cpf: '11122233355',
+            rg: '11223355',
+            address: 'Rua C, 789',
+            phone: '1177665544',
+            email: 'leonardo.aluno@example.com',
+            username: 'aluno',
+            password: await bcrypt.hash('aluno123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583169/atcc/z5fggmmbzflbuwwvwkho.webp',
+        },
+    })
+    const teacherDefault = await prisma.user.upsert({
+        where: { username: 'professor' },
+        update: {},
+        create: {
+            matriculation: '20230005',
+            name: 'Leonardo P. Sampaio',
+            role: 'TEACHER',
+            status: 'ACTIVE',
+            birthDate: new Date('1995-09-12'),
+            cpf: '11122233366',
+            rg: '11223366',
+            address: 'Rua C, 789',
+            phone: '1177665544',
+            email: 'leonardo.professor@example.com',
+            username: 'professor',
+            password: await bcrypt.hash('professor123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583797/atcc/qchfsbjlzdrajs77l7cm.jpg',
+        },
+    })
     const themeOne = await prisma.theme.upsert({
         where: { name: 'A Transformação Digital nas Microempresas: Desafios e Oportunidades no Brasil' },
         update: {},
@@ -81,7 +119,7 @@ async function main() {
     // eslint-disable-next-line
     console.log('seed completed successfully!')
     // eslint-disable-next-line
-    console.log({ joao, maria, admin, themeOne, themeTwo })
+    console.log({ joao, maria, admin, studentDefault, teacherDefault, themeOne, themeTwo })
 }
 main()
     .then(async () => {

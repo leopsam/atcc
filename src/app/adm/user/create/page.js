@@ -8,9 +8,15 @@ import InputImageBase64 from '@/app/components/ImageBase64'
 
 export default function Page() {
     const [message, setMessage] = useState(null)
+    const [imageBase64, setImageBase64] = useState('')
     const router = useRouter()
 
+    const handleImageChange = base64 => {
+        setImageBase64(base64)
+    }
+
     const handleSubmit = async formData => {
+        formData.append('photo', imageBase64)
         const response = await createUserActions(formData)
         if (!response.success) {
             setMessage(response.message)
@@ -68,7 +74,7 @@ export default function Page() {
                         <input type="text" className="form-control mx-2 form-control-sm" id="name" name="name" placeholder="Nome completo" />
                     </div>
                     <div className="col-md-4 d-flex align-items-center">
-                        <label htmlFor="perfil" className="form-label m-0 p-0 fs-6">
+                        <label htmlFor="profile" className="form-label m-0 p-0 fs-6">
                             Perfil:
                         </label>
                         <select id="role" name="role" className="form-select mx-2 form-select-sm">
@@ -154,7 +160,8 @@ export default function Page() {
                         </label>
                         <input type="password" className="form-control mx-2 form-control-sm" id="password" name="password" placeholder="maximo 8 digitos" />
                     </div>
-                    <InputImageBase64 />
+
+                    <InputImageBase64 onImageChange={handleImageChange} />
                     <div className="col-12 d-flex align-items-center">
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Cadastrar

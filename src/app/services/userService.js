@@ -46,6 +46,26 @@ export async function getUserByIdService(id) {
     }
 }
 
+export async function getUserByEmailService(email) {
+    const decodedEmail = decodeURIComponent(email)
+    try {
+        const user = await db.user.findUnique({
+            where: {
+                email: decodedEmail,
+            },
+        })
+        if (!user) {
+            return { success: false, message: 'Usuário não encontrado' }
+        }
+        return { success: true, data: user }
+    } catch (error) {
+        if (error.code === 'P2002') {
+            return { success: false, message: 'Erro de unicidade' }
+        }
+        return { success: false, message: 'Erro ao buscar usuário' }
+    }
+}
+
 export async function updateUserByIdService(id, validatedData) {
     try {
         const updateUser = await db.user.update({

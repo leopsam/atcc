@@ -2,8 +2,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
-export default function InputImageBase64() {
-    const [imageBase64, setImageBase64] = useState('')
+export default function InputImageBase64({ onImageChange }) {
     const [previewUrl, setPreviewUrl] = useState('')
 
     const handleFileChange = e => {
@@ -38,10 +37,9 @@ export default function InputImageBase64() {
                     canvas.width = width
                     canvas.height = height
                     ctx.drawImage(img, 0, 0, width, height)
-
                     const base64String = canvas.toDataURL('image/jpeg', 0.7)
-                    setImageBase64(base64String)
                     setPreviewUrl(base64String)
+                    onImageChange(base64String)
                 }
             }
 
@@ -50,39 +48,24 @@ export default function InputImageBase64() {
     }
 
     return (
-        <>
-            <div className="col-12  d-flex flex-column">
-                <hr />
-                <label htmlFor="formFile" className="form-label m-0 p-0 fs-6">
-                    Foto:
-                </label>
-                <input className="form-control mx-2 form-control-sm mb-4" type="file" accept="image/*" onChange={handleFileChange} />
+        <div className="col-12 d-flex flex-column">
+            <hr />
+            <label htmlFor="formFile" className="form-label m-0 p-0 fs-6">
+                Foto:
+            </label>
+            <input className="form-control mx-2 form-control-sm mb-4" type="file" accept="image/*" onChange={handleFileChange} />
 
-                {imageBase64 && (
-                    <div className="col-12 align-items-center">
-                        <label className="form-label m-0 p-0 fs-6">Foto em base64:</label>
-                        <textarea defaultValue={imageBase64} className="form-control mx-2 form-control-sm" rows="5" id="photo" name="photo"></textarea>
+            {previewUrl && (
+                <>
+                    <div className="col-12 align-items-center mt-3">
+                        <label htmlFor="formFile" className="form-label m-0 p-0 fs-6">
+                            Pré-visualização da imagem:
+                        </label>
                     </div>
-                )}
-                {previewUrl && (
-                    <>
-                        <div className="col-12 align-items-center mt-3">
-                            <label htmlFor="formFile" className="form-label m-0 p-0 fs-6">
-                                Pré-visualização da imagem:
-                            </label>
-                        </div>
-                        <Image
-                            className=" mx-2 border border-white border-4 object-fit-cover rounded"
-                            src={previewUrl}
-                            alt="Preview"
-                            width={200}
-                            height={200}
-                        />
-                    </>
-                )}
-
-                <hr />
-            </div>
-        </>
+                    <Image className="mx-2 border border-white border-4 object-fit-cover rounded" src={previewUrl} alt="Preview" width={200} height={200} />
+                </>
+            )}
+            <hr />
+        </div>
     )
 }
