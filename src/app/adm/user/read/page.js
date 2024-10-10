@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import ButtonsTable from '@/app/components/ButtonsTable'
 import { allUsersService } from '@/app/services/userService'
-import Image from 'next/image'
 
 export default async function Page() {
     const { data: users } = await allUsersService()
@@ -24,7 +24,15 @@ export default async function Page() {
                     <tbody>
                         {users.map(user => (
                             <tr key={user.id}>
-                                <td className="text-center"><Image src={user.photo} className="card-img-top object-fit-cover rounded-circle img-table" width={70} height={70} alt="Picture of the author" /></td>
+                                <td className="text-center">
+                                    <Image
+                                        src={user.photo}
+                                        className="card-img-top object-fit-cover rounded-circle img-table"
+                                        width={70}
+                                        height={70}
+                                        alt="Picture of the author"
+                                    />
+                                </td>
                                 <td>{user.matriculation}</td>
                                 <td>{user.name}</td>
                                 <td>{user.role}</td>

@@ -140,7 +140,7 @@
 .custom-card {
     width: 240px;
 }
-.img-table{
+.img-table {
     width: 40px;
     height: 40px;
 }
@@ -150,7 +150,7 @@
     width: auto;
     height: auto;
     white-space: nowrap;
-  }
+}
 .books-cards {
     background: linear-gradient(45deg, #0b173b, #574fcc);
     box-sizing: border-box;

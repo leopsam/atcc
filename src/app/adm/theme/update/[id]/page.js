@@ -2,8 +2,8 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import ButtonBack from '@/app/components/ButtonBack'
 import { updateThemeActions } from '@/actions/theme/updateThemeActions'
+import ButtonBack from '@/app/components/ButtonBack'
 
 export default function Page({ params }) {
     const [message, setMessage] = useState(null)
@@ -61,7 +61,13 @@ export default function Page({ params }) {
                         <label htmlFor="descricao" className="form-label m-0 p-0 fs-6">
                             Descrição:
                         </label>
-                        <textarea className="form-control mx-2 form-control-sm" id="description" name="description" rows="8" placeholder="Descrição do tema"></textarea>
+                        <textarea
+                            className="form-control mx-2 form-control-sm"
+                            id="description"
+                            name="description"
+                            rows="8"
+                            placeholder="Descrição do tema"
+                        ></textarea>
                     </div>
 
                     <div className="col-12 d-flex align-items-center">

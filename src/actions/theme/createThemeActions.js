@@ -1,7 +1,7 @@
 'use server'
 import { z } from 'zod'
-import { themeSchema } from '@/utils/schemas/themeSchema'
 import { createThemeService } from '@/app/services/themeService'
+import { themeSchema } from '@/utils/schemas/themeSchema'
 
 export async function createThemeActions(formData) {
     try {
@@ -11,7 +11,6 @@ export async function createThemeActions(formData) {
         }
 
         const validatedData = themeSchema.parse(formDataObj)
-
 
         const result = await createThemeService(validatedData)
         return result

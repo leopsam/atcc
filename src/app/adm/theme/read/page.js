@@ -4,8 +4,6 @@ import { allThemesService } from '@/app/services/themeService'
 export default async function Page() {
     const { data: themes } = await allThemesService()
 
-    console.log(themes)
-
     return (
         <main>
             <section className="dashboard-adm px-3 mt-3">
