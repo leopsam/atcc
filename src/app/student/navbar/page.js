@@ -100,7 +100,7 @@ export default async function Page() {
             </nav>
             <nav className="sidebar z-2 position-fixed">
                 <div className="text-center d-flex flex-column align-items-center ">
-                    <Image src={session?.user?.image} width={200} height={200} alt="Picture of the author" />
+                    <Image src={session?.user?.image} width={500} height={500} alt="Picture of the author" priority />
                     <h1 className="fs-5 my-4 text-white p-2">{session?.user?.name}</h1>
                     <Link className="btn btn-secondary w-100 rounded-0 my-2 text-white" href={`/student/user/settings/${session?.user?.email}`}>
                         Editar perfil

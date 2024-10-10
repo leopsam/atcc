@@ -62,7 +62,7 @@ export async function createUserActions(formData) {
         if (error instanceof TypeError) {
             return { success: false, message: 'Erro de tipo de dado. Verifique os dados fornecidos.' }
         } else {
-            return { success: false, message: error.message }
+            return { success: false, message: `Erro inesperado: ${error.message || 'Tente novamente mais tarde.'}` }
         }
     }
 }

@@ -41,7 +41,7 @@ export async function updateUserActions(id, formData) {
         if (error instanceof TypeError) {
             return { success: false, message: 'Erro de tipo de dado. Verifique os dados fornecidos.' }
         } else {
-            return { success: false, message: 'Erro inesperado ao editar usuário.' }
+            return { success: false, message: `Erro inesperado: ${error.message || 'Tente novamente mais tarde.'}` }
         }
     }
 }

@@ -62,7 +62,14 @@ export default function InputImageBase64({ onImageChange }) {
                             Pré-visualização da imagem:
                         </label>
                     </div>
-                    <Image className="mx-2 border border-white border-4 object-fit-cover rounded" src={previewUrl} alt="Preview" width={200} height={200} />
+                    <Image
+                        className="mx-2 border border-white border-4 object-fit-cover rounded"
+                        src={previewUrl}
+                        alt="Preview"
+                        width={200}
+                        height={200}
+                        priority
+                    />
                 </>
             )}
             <hr />
