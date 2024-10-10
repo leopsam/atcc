@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
-import perfil from './../../../public/perfil.jpg'
 import SignoutButtonUsers from '@/app/components/SignoutButtonUsers'
 
 export default async function Page() {
@@ -99,10 +98,10 @@ export default async function Page() {
                     </div>
                 </div>
             </nav>
-            <nav className="sidebar">
-                <div className="text-center d-flex flex-column align-items-center">
-                    <Image src={perfil} alt="user profile picture" />
-                    <h1 className="fs-5 my-4">{session?.user?.name}</h1>
+            <nav className="sidebar z-2 position-fixed">
+                <div className="text-center d-flex flex-column align-items-center ">
+                    <Image src={session?.user?.image} width={200} height={200} alt="Picture of the author" />
+                    <h1 className="fs-5 my-4 text-white p-1">{session?.user?.name}</h1>
                     <Link className="btn btn-secondary w-100 rounded-0 my-2 text-white" href="/student/user/settings">
                         Editar perfil
                     </Link>

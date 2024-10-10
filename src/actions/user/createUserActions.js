@@ -1,21 +1,28 @@
 'use server'
 import bcrypt from 'bcrypt'
 import { z } from 'zod'
+import cloudinary from '../../../cloudinary'
 import { createUserService } from '@/app/services/userService'
 import { userSchema } from '@/utils/schemas/userSchema'
 import userDefault from '@/utils/userDefault'
 
 export async function createUserActions(formData) {
-    const photoIs = async () => {
-        if (!formData.get('photo')) {
-            return userDefault
-        } else {
-            return formData.get('photo')
-        }
-    }
-
     try {
-        const photo = await photoIs()
+        const photoBase64 = formData.get('photo') || userDefault
+
+        const base64Regex = /^data:image\/(jpeg|jpg|png|gif|webp|bmp);base64,/
+
+        if (!base64Regex.test(photoBase64)) {
+            throw new Error('Formato de imagem inválido. Apenas imagens em formato Base64 são permitidas.')
+        }
+
+        const base64Data = photoBase64.replace(base64Regex, '')
+        const cloudinaryResponse = await cloudinary.uploader.upload(`data:image/jpeg;base64,${base64Data}`, {
+            resource_type: 'image',
+            folder: 'atcc',
+        })
+
+        const photoUrl = cloudinaryResponse.secure_url
 
         const formDataObj = {
             matriculation: formData.get('matriculation'),
@@ -30,7 +37,7 @@ export async function createUserActions(formData) {
             address: formData.get('address'),
             username: formData.get('username'),
             password: formData.get('password'),
-            photo: photo,
+            photo: photoUrl,
         }
 
         const validatedData = userSchema.parse(formDataObj)
@@ -48,10 +55,14 @@ export async function createUserActions(formData) {
             return { success: false, message: `Erro de validação: ${errorMessages}` }
         }
 
+        if (error.message.includes('Formato de imagem inválido')) {
+            return { success: false, message: error.message } // Erro de formato de imagem inválido
+        }
+
         if (error instanceof TypeError) {
             return { success: false, message: 'Erro de tipo de dado. Verifique os dados fornecidos.' }
         } else {
-            return { success: false, message: 'Erro inesperado ao criar usuário.' }
+            return { success: false, message: error.message }
         }
     }
 }

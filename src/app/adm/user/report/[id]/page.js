@@ -44,7 +44,7 @@ export default async function getUserById({ params }) {
                         </li>
                     </ul>
                 </div>
-                <ButtonBack href={"/adm/user/read"} />
+                <ButtonBack href={'/adm/user/read'} />
             </section>
         </main>
     )

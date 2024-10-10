@@ -2,9 +2,9 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { createUserActions } from '@/actions/user/createUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
 import InputImageBase64 from '@/app/components/ImageBase64'
-import { createUserActions } from '@/actions/user/createUserActions'
 
 export default function Page() {
     const [message, setMessage] = useState(null)
@@ -159,7 +159,7 @@ export default function Page() {
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Cadastrar
                         </button>
-                        <ButtonBack href={"/adm/user/read"} />
+                        <ButtonBack href={'/adm/user/read'} />
                     </div>
                 </form>
             </section>

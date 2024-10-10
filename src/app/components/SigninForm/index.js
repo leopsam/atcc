@@ -47,6 +47,7 @@ export default function LoginForm() {
                 setSpinner(false)
                 window.location.href = '/adm'
             } else {
+                setSpinner(false)
                 toast.error('Usuário desconhecido', {
                     position: 'bottom-center',
                     autoClose: 3000,
