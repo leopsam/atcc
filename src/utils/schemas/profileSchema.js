@@ -7,5 +7,6 @@ export const profileSchema = z.object({
     email: z.string().email({ message: 'Email inválido' }),
     address: z.string().min(1, { message: 'Endereço é obrigatório' }),
     username: z.string().min(1, { message: 'Username é obrigatório' }),
+    password: z.string().min(8, { message: 'Senha deve ter pelo menos 8 caracteres' }),
     photo: z.string().optional(),
 })

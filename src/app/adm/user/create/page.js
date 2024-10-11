@@ -160,7 +160,6 @@ export default function Page() {
                         </label>
                         <input type="password" className="form-control mx-2 form-control-sm" id="password" name="password" placeholder="maximo 8 digitos" />
                     </div>
-
                     <InputImageBase64 onImageChange={handleImageChange} />
                     <div className="col-12 d-flex align-items-center">
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">

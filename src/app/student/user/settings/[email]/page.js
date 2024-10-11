@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { settingsUserActions } from '@/actions/user/settingsUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import ChangePassword from '@/app/components/ChangePassword'
 import InputImageBase64 from '@/app/components/ImageBase64'
 
 export default function Page({ params }) {
@@ -56,20 +57,20 @@ export default function Page({ params }) {
                             {message}
                         </div>
                     ))}
-                <form className="row g-2 text-black w-50 my-2" action={handleSubmit}>
-                    <div className="col-12 d-flex align-items-center">
+                <form className="row g-2 text-black my-2" action={handleSubmit}>
+                    <div className="col-md-4 d-flex align-items-center">
                         <label htmlFor="nome" className="form-label m-0 p-0 fs-6">
                             Nome:
                         </label>
                         <input type="text" className="form-control mx-2 form-control-sm" id="name" name="name" placeholder="Leonardo Sampaio" />
                     </div>
-                    <div className="col-12 d-flex align-items-center">
+                    <div className="col-md-4 d-flex align-items-center">
                         <label htmlFor="email" className="form-label m-0 p-0 fs-6">
                             Email:
                         </label>
                         <input type="email" className="form-control mx-2 form-control-sm" id="email" name="email" placeholder="leonardo@email.com" />
                     </div>
-                    <div className="col-12 d-flex align-items-center">
+                    <div className="col-md-4 d-flex align-items-center">
                         <label htmlFor="nascimento" className="form-label m-0 p-0 fs-6">
                             Nascimento:
                         </label>
@@ -82,14 +83,6 @@ export default function Page({ params }) {
                             placeholder="dd/mm/aaaa"
                         />
                     </div>
-
-                    <div className="col-12 d-flex align-items-center">
-                        <label htmlFor="tel" className="form-label m-0 p-0 fs-6">
-                            Telefone:
-                        </label>
-                        <input type="text" className="form-control mx-2 form-control-sm" id="phone" name="phone" placeholder="DDD + numero" />
-                    </div>
-
                     <div className="col-12 d-flex align-items-center">
                         <label htmlFor="tel" className="form-label m-0 p-0 fs-6">
                             Endereço:
@@ -102,8 +95,13 @@ export default function Page({ params }) {
                             placeholder="Rua, Avenida, Numero, Bairro, Cidade..."
                         />
                     </div>
-
-                    <div className="col-12 d-flex align-items-center">
+                    <div className="col-md-6 d-flex align-items-center">
+                        <label htmlFor="tel" className="form-label m-0 p-0 fs-6">
+                            Telefone:
+                        </label>
+                        <input type="text" className="form-control mx-2 form-control-sm" id="phone" name="phone" placeholder="DDD + numero" />
+                    </div>
+                    <div className="col-md-6 d-flex align-items-center">
                         <label htmlFor="login" className="form-label m-0 p-0 fs-6">
                             Login:
                         </label>
@@ -111,7 +109,7 @@ export default function Page({ params }) {
                     </div>
 
                     <InputImageBase64 onImageChange={handleImageChange} />
-
+                    <ChangePassword />
                     <div className="col-12 d-flex align-items-center py-2">
                         <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
                             Salvar
@@ -119,7 +117,6 @@ export default function Page({ params }) {
                         <ButtonBack href={'/student'} />
                     </div>
                 </form>
-
                 <div className="card m-5">
                     <div className="card-header">AVISO</div>
                     <div className="card-body">
