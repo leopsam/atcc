@@ -43,21 +43,19 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session, token }) {
-            // Adiciona a matrícula à sessão, se estiver no token
             if (token?.matriculation) {
                 session.user.matriculation = token.matriculation
             }
-            // Adiciona o role à sessão, se estiver no token
+
             if (token?.role) {
                 session.user.role = token.role
             }
             return session
         },
         async jwt({ token, user }) {
-            // Quando o usuário faz login, adiciona a matrícula e o role ao token
             if (user) {
-                token.matriculation = user.matriculation // Passa a matrícula para o token
-                token.role = user.role // Passa o role para o token
+                token.matriculation = user.matriculation
+                token.role = user.role
             }
             return token
         },

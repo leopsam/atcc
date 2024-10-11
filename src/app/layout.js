@@ -32,23 +32,17 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-br">
             <head>
-                {/* Link de pré-carregamento do Bootstrap */}
-                <link
-                    rel="preload"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                    as="script"
-                    crossOrigin="anonymous" // Use crossOrigin em vez de crossorigin
-                />
+                <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" as="script" crossOrigin="anonymous" />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} ${aardc.variable}`}>
                 <ToastContainer />
                 {children}
-                {/* Script do Bootstrap */}
+
                 <Script
                     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                    crossOrigin="anonymous" // Use crossOrigin em vez de crossorigin
-                    strategy="afterInteractive" // Garante que o script seja carregado o mais rápido possível
+                    crossOrigin="anonymous"
+                    strategy="afterInteractive"
                 />
             </body>
         </html>

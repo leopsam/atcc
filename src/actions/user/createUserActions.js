@@ -56,7 +56,7 @@ export async function createUserActions(formData) {
         }
 
         if (error.message.includes('Formato de imagem inválido')) {
-            return { success: false, message: error.message } // Erro de formato de imagem inválido
+            return { success: false, message: error.message }
         }
 
         if (error instanceof TypeError) {

@@ -14,7 +14,7 @@ export async function updateUserActions(id, formData) {
             role: user.role || formData.get('role'),
             status: user.status || formData.get('status'),
             birthDate: formData.get('birthDate') || user.birthDate,
-            cpf: formData.get('cpf') || user.cpf, // Corrigido: verifica se o valor do formData existe, caso contrário, usa user.cpf
+            cpf: formData.get('cpf') || user.cpf,
             rg: formData.get('rg') || user.rg,
             phone: formData.get('phone') || user.phone,
             email: formData.get('email') || user.email,
