@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import contDesktop from './../public/img/desktop/cont.jpg'
 import objDesktop from './../public/img/desktop/obj.jpg'
 import versDesktop from './../public/img/desktop/vers.jpg'
@@ -32,9 +33,9 @@ export default async function Home() {
                             <div className="d-flex flex-column align-items-lg-start m-2">
                                 <SigninForm />
 
-                                <a href="#" className="p-0 text-light" data-bs-toggle="modal" data-bs-target="#modalRecoverPassword">
+                                <Link href="#" className="p-0 text-light" data-bs-toggle="modal" data-bs-target="#modalRecoverPassword">
                                     Esqueceu sua senha?
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

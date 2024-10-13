@@ -23,65 +23,65 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0">
                             <li className="nav-item">
-                                <a className="nav-link" href="./student/components/Home">
+                                <Link className="nav-link" href="./student/components/Home">
                                     Principal
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">
+                                <Link className="nav-link " aria-current="page" href="#">
                                     Tcc
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Temas
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item" href="#">
+                                        <Link className="dropdown-item" href="#">
                                             Consultar temas
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">
+                                        <Link className="dropdown-item" href="#">
                                             Temas sugeridos
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">
+                                        <Link className="dropdown-item" href="#">
                                             Cadastrar temas
-                                        </a>
+                                        </Link>
                                     </li>
-                                </ul>
-                            </li>
+                                </ul >
+                            </li >
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">
+                                <Link className="nav-link " aria-current="page" href="#">
                                     Rank
-                                </a>
-                            </li>
+                                </Link>
+                            </li >
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">
+                                <Link className="nav-link " aria-current="page" href="#">
                                     Etapas
-                                </a>
-                            </li>
+                                </Link>
+                            </li >
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">
+                                <Link className="nav-link " aria-current="page" href="#">
                                     Biblioteca
-                                </a>
-                            </li>
+                                </Link>
+                            </li >
 
                             <li className="nav-item d-block d-md-none">
-                                <a className="nav-link " aria-current="page" href="#">
+                                <Link className="nav-link " aria-current="page" href="#">
                                     Editar perfil
-                                </a>
-                            </li>
-                        </ul>
+                                </Link>
+                            </li >
+                        </ul >
                         <button type="button" className="btn p-0  d-block d-md-none">
                             Sair
                         </button>
-                    </div>
-                </div>
-            </nav>
+                    </div >
+                </div >
+            </nav >
             <div className="sidebar">
                 <div className="text-center d-flex flex-column align-items-center">
                     <Image src={perfil} alt="..." />
