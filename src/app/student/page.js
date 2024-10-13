@@ -1,8 +1,12 @@
-export default function AlunoDashboard() {
+import { getServerSession } from 'next-auth'
+
+export default async function AlunoDashboard() {
+    const session = await getServerSession()
+
     return (
         <section className="dashboard">
             <div className="text-black bg-primary-subtle pt-5 pb-4 px-3">
-                <h1 className="fs-2">Bem vindo Leonardo Sampaio ao ATCC</h1>
+                <h1 className="fs-2">Bem vindo {session?.user?.name} ao ATCC</h1>
                 <p className="fs-6">
                     Este é um sistema que revoluciona o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar.
                 </p>

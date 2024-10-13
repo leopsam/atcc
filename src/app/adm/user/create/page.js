@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { createUserActions } from '@/actions/user/createUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import ButtonSubmit from '@/app/components/ButtonSubmit'
 import InputImageBase64 from '@/app/components/ImageBase64'
 
 export default function Page() {
@@ -162,9 +163,7 @@ export default function Page() {
                     </div>
                     <InputImageBase64 onImageChange={handleImageChange} />
                     <div className="col-12 d-flex align-items-center">
-                        <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                            Cadastrar
-                        </button>
+                        <ButtonSubmit>Cadastrar</ButtonSubmit>
                         <ButtonBack href={'/adm/user/read'} />
                     </div>
                 </form>

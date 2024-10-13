@@ -11,6 +11,9 @@
     padding: 55px 0 100px 0;
     font-size: 12px;
 }
+.width-btn {
+    min-width: 70px;
+}
 .loading-adm {
     width: 100vw;
     height: 100vh;
@@ -62,7 +65,12 @@
         transform: rotate(360deg);
     }
 }
-
+.custom-link-navbar {
+    color: #bdbdbd;
+}
+.custom-link-navbar:hover {
+    color: #ffffff;
+}
 .sidebar {
     height: 100vh;
     width: 250px;
@@ -139,6 +147,10 @@
 }
 .custom-card {
     width: 240px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .img-table {
     width: 40px;
@@ -151,15 +163,15 @@
     height: auto;
     white-space: nowrap;
 }
-.books-cards {
+.book {
     background: linear-gradient(45deg, #0b173b, #574fcc);
     box-sizing: border-box;
     border-radius: 5px 5px 0 0;
 }
-.books-cards img {
+.book img {
     width: 50%;
 }
-.videos-cards img {
+.video img {
     width: 100%;
 }
 .card img {
@@ -167,6 +179,7 @@
     object-fit: cover;
     max-width: 100%;
 }
+
 .input-date::-webkit-calendar-picker-indicator {
     background-color: #595c5f;
     padding: 5px;
@@ -176,6 +189,18 @@
 .card-width-custom {
     width: 400px;
 }
+.custom-card-body-library-title {
+    font-size: 1rem; /* Ajuste o tamanho do título */
+    line-height: 1.2;
+    max-height: 3rem; /* Limite a altura do título */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Limita o título a uma linha */
+}
+.custom-card-body-library {
+    height: 60px;
+}
+
 .text-grup {
     line-height: 1.5;
 }

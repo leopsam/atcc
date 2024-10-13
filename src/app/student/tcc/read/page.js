@@ -1,3 +1,4 @@
+import ButtonsTable from '@/app/components/ButtonsTable'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export default function Page() {
@@ -27,9 +28,7 @@ export default function Page() {
                         </li>
                     </ul>
                     <div className="card-body">
-                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle">
-                            Editar
-                        </button>
+                        <ButtonsTable href={`/adm/tcc/update/${'userId'}`} />
                     </div>
                 </div>
 

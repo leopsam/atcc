@@ -1,17 +1,18 @@
+import { Tooltip } from '@nextui-org/tooltip'
 import Image from 'next/image'
-import imgteste from './../../../public/books/html2.png'
-import imgteste2 from './../../../public/img/desktop/obj.jpg'
+import Link from 'next/link'
+import { allLibraryService } from '@/app/services/libraryService'
 
-export default function Page() {
+export default async function Page() {
+    const { data: library } = await allLibraryService()
+
     return (
         <section className="dashboard">
-            <div className="text-black bg-body-secondary py-4 px-5 text-center">
+            <div className="text-black bg-primary-subtle py-4 px-5 text-center">
                 <h1 className="fs-2 mt-2">Bem vindo à biblioteca digital ATCC</h1>
                 <p className="fs-6">
                     Este é um sistema que revoluciona o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar é um
-                    sistema que revoluciona o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar é um sistema que
-                    revoluciona o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar é um sistema que revoluciona
-                    o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar.
+                    sistema que revoluciona o modo de orientar o trabalho de conclusão de curso, onde o aluno e orientador possam se comunicar.
                 </p>
             </div>
             <div className="p-2 d-flex align-items-center justify-content-center border-bottom">
@@ -38,216 +39,24 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-
             <div className="p-4 d-flex flex-wrap justify-content-center align-items-center">
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="videos-cards align-items-center text-center">
-                        <Image src={imgteste2} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
-                <div className="card custom-card mx-2 my-3">
-                    <div className="books-cards align-items-center text-center">
-                        <Image src={imgteste} className="card-img-top" alt="..." />
-                    </div>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Guia pratico de HTML</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                        <a href="#" className="btn btn-secondary text-white w-100">
-                            Abrir
-                        </a>
-                    </div>
-                </div>
+                {library &&
+                    library.map(libraryItem => (
+                        <div key={libraryItem.id} className="card custom-card mx-2 my-3">
+                            <div className={`${libraryItem.type.toLowerCase()} align-items-center text-center`}>
+                                <Image src={libraryItem.image} width={200} height={200} className="card-img-top" alt="..." />
+                            </div>
+                            <div className="card-body d-flex flex-column justify-content-between">
+                                <Tooltip showArrow={true} className="capitalize rounded p-2 text-bg-info cursor" content={libraryItem.title}>
+                                    <h5 className="card-title m-0 fs-5 fw-bold custom-card-body-library-title">{libraryItem.title}</h5>
+                                </Tooltip>
+                                <p className="custom-card-body-library m-0 card-text">{libraryItem.description}</p>
+                                <Link href={libraryItem.file} className="btn btn-secondary text-white mt-auto w-100" target="_blank" rel="noopener noreferrer">
+                                    Abrir
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
             </div>
         </section>
     )

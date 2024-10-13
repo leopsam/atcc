@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { updateThemeActions } from '@/actions/theme/updateThemeActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import ButtonSubmit from '@/app/components/ButtonSubmit'
 
 export default function Page({ params }) {
     const [message, setMessage] = useState(null)
@@ -71,9 +72,7 @@ export default function Page({ params }) {
                     </div>
 
                     <div className="col-12 d-flex align-items-center">
-                        <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                            Cadastrar
-                        </button>
+                        <ButtonSubmit>Cadastrar</ButtonSubmit>
                         <ButtonBack href={'/adm/theme/read'} />
                     </div>
                 </form>

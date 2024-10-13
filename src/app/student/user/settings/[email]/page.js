@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { settingsUserActions } from '@/actions/user/settingsUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import ButtonSubmit from '@/app/components/ButtonSubmit'
 import ChangePassword from '@/app/components/ChangePassword'
 import InputImageBase64 from '@/app/components/ImageBase64'
 
@@ -111,9 +112,7 @@ export default function Page({ params }) {
                     <InputImageBase64 onImageChange={handleImageChange} />
                     <ChangePassword />
                     <div className="col-12 d-flex align-items-center py-2">
-                        <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                            Salvar
-                        </button>
+                        <ButtonSubmit>Salvar</ButtonSubmit>
                         <ButtonBack href={'/student'} />
                     </div>
                 </form>

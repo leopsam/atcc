@@ -1,3 +1,5 @@
+import ButtonBack from '@/app/components/ButtonBack'
+import ButtonSubmit from '@/app/components/ButtonSubmit'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export default function Page() {
@@ -50,12 +52,8 @@ export default function Page() {
                     </table>
 
                     <div className="col-12 d-flex align-items-center py-2">
-                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle m-1">
-                            Salvar
-                        </button>
-                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle m-1">
-                            Voltar
-                        </button>
+                        <ButtonSubmit>Enviar</ButtonSubmit>
+                        <ButtonBack href={'/adm/tcc/read'} />
                     </div>
                 </form>
             </div>

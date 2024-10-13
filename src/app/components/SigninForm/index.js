@@ -2,6 +2,7 @@
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import ButtonSubmit from '../ButtonSubmit'
 
 export default function LoginForm() {
     const [spinner, setSpinner] = useState(false)
@@ -66,9 +67,7 @@ export default function LoginForm() {
             <input className="form-control form-control-sm me-2" type="text" placeholder="username" aria-label="username" name="username" required />
             <input className="form-control form-control-sm me-2" type="password" placeholder="Senha" aria-label="Senha" name="password" required />
 
-            <button className="btn btn-light w-25" type="submit">
-                {spinner === false ? 'Entre' : <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>}
-            </button>
+            <ButtonSubmit>{spinner === false ? 'Entre' : <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>}</ButtonSubmit>
         </form>
     )
 }

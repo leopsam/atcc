@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SignoutButtonAdm from '@/app/components/SignoutButtonAdm'
+import SignoutButtonNavbar from '@/app/components/SignoutButtonNavbar'
 
 export default function Navbar() {
     return (
@@ -57,7 +57,7 @@ export default function Navbar() {
                                 </ul>
                             </li>
                         </ul>
-                        <SignoutButtonAdm />
+                        <SignoutButtonNavbar />
                     </div>
                 </div>
             </nav>

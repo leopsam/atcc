@@ -1,3 +1,5 @@
+import ButtonSubmit from '@/app/components/ButtonSubmit'
+
 export default function Page() {
     return (
         <section className="dashboard">
@@ -37,9 +39,7 @@ export default function Page() {
                                     </div>
 
                                     <div className="col-12 d-flex align-items-center py-2">
-                                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle m-1">
-                                            Enviar
-                                        </button>
+                                        <ButtonSubmit>Enviar</ButtonSubmit>
                                     </div>
                                 </form>
                             </div>
@@ -78,9 +78,7 @@ export default function Page() {
                                     </div>
 
                                     <div className="col-12 d-flex align-items-center py-2">
-                                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle m-1">
-                                            Enviar
-                                        </button>
+                                        <ButtonSubmit>Enviar</ButtonSubmit>
                                     </div>
                                 </form>
                             </div>
@@ -119,9 +117,7 @@ export default function Page() {
                                     </div>
 
                                     <div className="col-12 d-flex align-items-center py-2">
-                                        <button type="submit" className="btn text-bg-light btn-sm border border-dark-subtle m-1">
-                                            Enviar
-                                        </button>
+                                        <ButtonSubmit>Enviar</ButtonSubmit>
                                     </div>
                                 </form>
                             </div>

@@ -32,14 +32,6 @@ model User {
   updatedAt       DateTime @updatedAt
 }
 
-model Theme {
-  id              String   @id @default(uuid())
-  name            String   @unique
-  description     String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-}
-
 enum Role {
   ADMIN
   STUDENT
@@ -50,4 +42,30 @@ enum Status {
   ACTIVE
   INACTIVE
 }
+
+model Theme {
+  id              String   @id @default(uuid())
+  name            String   @unique
+  description     String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Library {
+  id              String   @id @default(uuid())
+  title           String   @unique @db.VarChar(35)
+  description     String   @db.VarChar(100)
+  type            Type
+  image           String
+  file            String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+enum Type {
+  VIDEO
+  BOOK
+}
+
+
 

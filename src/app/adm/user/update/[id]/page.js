@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { updateUserActions } from '@/actions/user/updateUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
+import ButtonSubmit from '@/app/components/ButtonSubmit'
 
 export default function Page({ params }) {
     const [message, setMessage] = useState(null)
@@ -157,9 +158,7 @@ export default function Page({ params }) {
                         <input type="password" className="form-control mx-2 form-control-sm" id="password" name="password" placeholder="maximo 8 digitos" />
                     </div>
                     <div className="col-12 d-flex align-items-center">
-                        <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                            Salvar
-                        </button>
+                        <ButtonSubmit>Salvar</ButtonSubmit>
                         <ButtonBack href={'/adm/user/read'} />
                     </div>
                 </form>

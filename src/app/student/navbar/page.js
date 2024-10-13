@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
-import SignoutButtonUsers from '@/app/components/SignoutButtonUsers'
+import SignoutButtonNavbar from '@/app/components/SignoutButtonNavbar'
 
 export default async function Page() {
     const session = await getServerSession()
@@ -25,14 +25,20 @@ export default async function Page() {
                         <span className="bi bi-list"></span>
                     </button>
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-md-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-md-0 d-flex  ">
                             <li className="nav-item">
-                                <Link className="nav-link" href="/student">
+                                <Link className="mx-2 custom-link-navbar" href="/student">
                                     Principal
                                 </Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link
+                                    className="mx-2 custom-link-navbar dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
                                     Tcc
                                 </Link>
                                 <ul className="dropdown-menu">
@@ -49,7 +55,13 @@ export default async function Page() {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link
+                                    className="mx-2 custom-link-navbar dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
                                     Temas
                                 </Link>
 
@@ -72,29 +84,27 @@ export default async function Page() {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href="/student/asd">
+                                <Link className="mx-2 custom-link-navbar" href="/student/asd">
                                     Rank
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href="/student/steps">
+                                <Link className="mx-2 custom-link-navbar" href="/student/steps">
                                     Etapas
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href="/student/library">
+                                <Link className="mx-2 custom-link-navbar" href="/student/library">
                                     Biblioteca
                                 </Link>
                             </li>
                             <li className="nav-item d-block d-md-none">
-                                <Link className="nav-link" href="/student/user/settings">
+                                <Link className="mx-2 custom-link-navbar" href="/student/user/settings">
                                     Editar perfil
                                 </Link>
                             </li>
                         </ul>
-                        <button type="button" className="btn p-0  d-block d-md-none">
-                            Sair
-                        </button>
+                        <SignoutButtonNavbar />
                     </div>
                 </div>
             </nav>
@@ -105,7 +115,6 @@ export default async function Page() {
                     <Link className="btn btn-secondary w-100 rounded-0 my-2 text-white" href={`/student/user/settings/${session?.user?.email}`}>
                         Editar perfil
                     </Link>
-                    <SignoutButtonUsers />
                 </div>
             </nav>
         </>

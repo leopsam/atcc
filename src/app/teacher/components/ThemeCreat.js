@@ -1,3 +1,5 @@
+import ButtonSubmit from '@/app/components/ButtonSubmit'
+
 export default function ThemeCreat() {
     return (
         <main>
@@ -20,9 +22,7 @@ export default function ThemeCreat() {
                         </div>
 
                         <div className="col-12 d-flex align-items-center">
-                            <button type="submit" className="btn text-bg-light border border-dark-subtle m-1">
-                                Cadastrar
-                            </button>
+                            <ButtonSubmit>Cadastrar</ButtonSubmit>
                         </div>
                     </form>
                 </div>
