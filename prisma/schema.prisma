@@ -53,7 +53,7 @@ model Theme {
 
 model Library {
   id              String   @id @default(uuid())
-  title           String   @unique @db.VarChar(35)
+  title           String   @unique
   description     String   @db.VarChar(100)
   type            Type
   image           String
