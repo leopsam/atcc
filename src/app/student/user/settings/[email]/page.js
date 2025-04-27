@@ -58,7 +58,7 @@ export default function Page({ params }) {
                             {message}
                         </div>
                     ))}
-                <form className="row g-2 text-black my-2" action={handleSubmit}>
+                <form className="row g-2 text-black my-2" autoComplete="off" action={handleSubmit}>
                     <div className="col-md-4 d-flex align-items-center">
                         <label htmlFor="nome" className="form-label m-0 p-0 fs-6">
                             Nome:

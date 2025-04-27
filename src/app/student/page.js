@@ -21,11 +21,11 @@ export default async function AlunoDashboard() {
             <div className="card m-5">
                 <div className="card-header">RECURSOS DISPONÍVEIS</div>
                 <div className="card-body">
-                    <p className="card-text m-0">-Escolher temas já cadastrados ou sujetione seu proprio tema-</p>
-                    <p className="card-text m-0">-Cadastro das inforções do seu TCC-</p>
-                    <p className="card-text m-0">-Verificar reputação dos professores orientadores-</p>
-                    <p className="card-text m-0">-Enviar o TCC por etapas-</p>
-                    <p className="card-text m-0">-Biblioteca online com livros, sites e videos aulas-</p>
+                    <p className="card-text m-0">🔹 Escolher temas já cadastrados ou sujetione seu proprio tema</p>
+                    <p className="card-text m-0">🔹 Cadastro das inforções do seu TCC</p>
+                    <p className="card-text m-0">🔹 Verificar reputação dos professores orientadores</p>
+                    <p className="card-text m-0">🔹 Enviar o TCC por etapas</p>
+                    <p className="card-text m-0">🔹 Biblioteca online com livros, sites e videos aulas</p>
                 </div>
             </div>
         </section>

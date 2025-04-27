@@ -1,8 +1,11 @@
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { allThemesService } from '@/app/services/themeService'
 
-export default function Page() {
+export default async function Page() {
+    const { data: themes } = await allThemesService()
+
     return (
         <section className="dashboard">
             <div className="px-4 py-5">
@@ -25,8 +28,11 @@ export default function Page() {
                         </label>
                         <select id="situacao" className="form-select mx-2 form-select-sm">
                             <option defaultValue>Selecione</option>
-                            <option>Tema01</option>
-                            <option>tema03</option>
+                            {themes.map(theme => (
+                                <option key={theme.id} value={theme.id}>
+                                    {theme.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
 

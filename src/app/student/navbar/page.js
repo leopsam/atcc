@@ -31,66 +31,19 @@ export default async function Page() {
                                     Principal
                                 </Link>
                             </li>
-                            <li className="nav-item dropdown">
-                                <Link
-                                    className="mx-2 custom-link-navbar dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Tcc
+                            <li className="nav-item">
+                                <Link className="mx-2 custom-link-navbar" href="/student/tcc/read">
+                                    Proposta
                                 </Link>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <Link className="dropdown-item" href="/student/tcc/create">
-                                            Cadastrar
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" href="/student/tcc/read">
-                                            Consultar
-                                        </Link>
-                                    </li>
-                                </ul>
                             </li>
-                            <li className="nav-item dropdown">
-                                <Link
-                                    className="mx-2 custom-link-navbar dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
+                            <li className="nav-item">
+                                <Link className="mx-2 custom-link-navbar" href="/student/theme/read">
                                     Temas
                                 </Link>
-
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <Link className="dropdown-item" href="/student/theme/read">
-                                            Consultar temas
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" href="/student/theme/suggestion/create">
-                                            Enviar sugestão
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" href="/student/theme/suggestion/read">
-                                            Suas sugestôes
-                                        </Link>
-                                    </li>
-                                </ul>
                             </li>
                             <li className="nav-item">
                                 <Link className="mx-2 custom-link-navbar" href="/student/asd">
                                     Rank
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="mx-2 custom-link-navbar" href="/student/steps">
-                                    Etapas
                                 </Link>
                             </li>
                             <li className="nav-item">
@@ -112,8 +65,14 @@ export default async function Page() {
                 <div className="text-center d-flex flex-column align-items-center ">
                     <Image src={session?.user?.image} width={500} height={500} alt="Picture of the author" priority />
                     <h1 className="fs-5 my-4 text-white p-2">{session?.user?.name}</h1>
-                    <Link className="btn btn-secondary w-100 rounded-0 my-2 text-white" href={`/student/user/settings/${session?.user?.email}`}>
+                    <Link className="btn btn-outline-light w-75 rounded-0 my-2 text-white" href={`/student/user/settings/${session?.user?.email}`}>
                         Editar perfil
+                    </Link>
+                    <Link className="btn btn-outline-light w-75 rounded-0 my-2 text-white" href="/student/tcc/create">
+                        Cadastrar Proposta de Trabalho de Conclusão
+                    </Link>
+                    <Link className="btn btn-outline-light w-75 rounded-0 my-2 text-white" href="/student/steps">
+                        Etapas e Cronograma
                     </Link>
                 </div>
             </nav>

@@ -37,6 +37,7 @@ export default function ChangePassword() {
                                     id="password-old"
                                     name="password-old"
                                     placeholder="Senha"
+                                    autoComplete="new-password"
                                 />
                             </div>
                             <div className="col-md-6 d-flex align-items-center my-3">
@@ -49,6 +50,7 @@ export default function ChangePassword() {
                                     id="password-new"
                                     name="password-new"
                                     placeholder="Nova Senha"
+                                    autoComplete="new-password"
                                 />
                             </div>
                             <div className="col-md-6 d-flex align-items-center my-3">
@@ -61,6 +63,7 @@ export default function ChangePassword() {
                                     id="confirm-password"
                                     name="confirm-password"
                                     placeholder="Confirme Nova Senha"
+                                    autoComplete="new-password"
                                 />
                             </div>
                         </div>
