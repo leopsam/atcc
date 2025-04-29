@@ -116,6 +116,141 @@ async function main() {
                 'Este trabalho visa explorar o papel dos materiais recicláveis na inovação e sustentabilidade da construção civil, um dos setores que mais impactam o meio ambiente. O estudo tem como objetivo analisar os benefícios e desafios da adoção de materiais recicláveis na construção de edifícios, investigando seu impacto em termos de redução de resíduos, eficiência energética e custo-benefício para empresas e consumidores.',
         },
     })
+    const themeThree = await prisma.theme.upsert({
+        where: { name: 'A Influência das Redes Sociais na Formação da Opinião Pública' },
+        update: {},
+        create: {
+            name: 'A Influência das Redes Sociais na Formação da Opinião Pública',
+            description:
+                'Este trabalho tem como objetivo investigar o papel das redes sociais na formação da opinião pública contemporânea, analisando como plataformas digitais como Facebook, Twitter e Instagram influenciam a percepção e o comportamento dos usuários em relação a questões sociais, políticas e culturais. A pesquisa buscará compreender os mecanismos de disseminação de informações e desinformações nas redes sociais, bem como seu impacto na formação de narrativas coletivas e na mobilização social.',
+        },
+    })
+    const themeFour = await prisma.theme.upsert({
+        where: { name: 'A Importância da Educação Financeira nas Escolas: Desafios e Oportunidades' },
+        update: {},
+        create: {
+            name: 'A Importância da Educação Financeira nas Escolas: Desafios e Oportunidades',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da educação financeira nas escolas, analisando os desafios e oportunidades para a implementação de programas de ensino sobre finanças pessoais no currículo escolar. A pesquisa buscará investigar como a educação financeira pode contribuir para o desenvolvimento de habilidades financeiras nos jovens, promovendo uma maior conscientização sobre consumo, poupança e investimento.',
+        },
+    })
+    const themeFive = await prisma.theme.upsert({
+        where: { name: 'A Revolução dos Carros Elétricos: Desafios e Oportunidades para a Indústria Automotiva' },
+        update: {},
+        create: {
+            name: 'A Revolução dos Carros Elétricos: Desafios e Oportunidades para a Indústria Automotiva',
+            description:
+                'Este trabalho tem como objetivo analisar a revolução dos carros elétricos na indústria automotiva, investigando os desafios e oportunidades que essa nova tecnologia representa para fabricantes, consumidores e o meio ambiente. A pesquisa buscará explorar as inovações tecnológicas, políticas públicas e tendências de mercado que estão impulsionando a adoção de veículos elétricos, além de discutir os impactos sociais e econômicos dessa transição para a sustentabilidade.',
+        },
+    })
+    const themeSix = await prisma.theme.upsert({
+        where: { name: 'A Importância da Inteligência Artificial na Saúde' },
+        update: {},
+        create: {
+            name: 'A Importância da Inteligência Artificial na Saúde',
+            description:
+                'Este trabalho tem como objetivo investigar a importância da inteligência artificial (IA) na área da saúde, analisando como essa tecnologia pode melhorar diagnósticos, tratamentos e a gestão de serviços de saúde. A pesquisa buscará explorar as aplicações da IA em diferentes áreas, como radiologia, telemedicina e análise de dados clínicos, além de discutir os desafios éticos e legais associados ao uso da IA na saúde.',
+        },
+    })
+    const themeSeven = await prisma.theme.upsert({
+        where: { name: 'A Evolução do Ensino a Distância no Brasil' },
+        update: {},
+        create: {
+            name: 'A Evolução do Ensino a Distância no Brasil',
+            description:
+                'Este trabalho tem como objetivo analisar a evolução do ensino a distância (EAD) no Brasil, investigando as mudanças tecnológicas, pedagógicas e sociais que impactaram essa modalidade de ensino ao longo dos anos. A pesquisa buscará explorar os desafios e oportunidades do EAD, bem como seu papel na democratização do acesso à educação e na formação profissional.',
+        },
+    })
+    const themeEight = await prisma.theme.upsert({
+        where: { name: 'A Importância da Cibersegurança na Era Digital' },
+        update: {},
+        create: {
+            name: 'A Importância da Cibersegurança na Era Digital',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da cibersegurança na era digital, analisando os desafios e oportunidades para proteger dados e informações em um mundo cada vez mais conectado. A pesquisa buscará investigar as principais ameaças cibernéticas, como ataques de ransomware e phishing, além de explorar as melhores práticas e tecnologias para garantir a segurança da informação.',
+        },
+    })
+    const themeNine = await prisma.theme.upsert({
+        where: { name: 'A Importância da Sustentabilidade na Indústria da Moda' },
+        update: {},
+        create: {
+            name: 'A Importância da Sustentabilidade na Indústria da Moda',
+            description:
+                'Este trabalho tem como objetivo investigar a importância da sustentabilidade na indústria da moda, analisando os desafios e oportunidades para promover práticas sustentáveis em toda a cadeia produtiva. A pesquisa buscará explorar as inovações tecnológicas, políticas públicas e tendências de mercado que estão impulsionando a moda sustentável, além de discutir os impactos sociais e ambientais dessa transformação.',
+        },
+    })
+    const themeTen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Diversidade e Inclusão nas Empresas' },
+        update: {},
+        create: {
+            name: 'A Importância da Diversidade e Inclusão nas Empresas',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da diversidade e inclusão nas empresas, analisando os desafios e oportunidades para promover um ambiente de trabalho mais inclusivo e diverso. A pesquisa buscará investigar os benefícios da diversidade para a inovação, criatividade e desempenho organizacional, além de explorar as melhores práticas para implementar políticas de diversidade e inclusão nas empresas.',
+        },
+    })
+    const themeEleven = await prisma.theme.upsert({
+        where: { name: 'A Importância da Ética na Inteligência Artificial' },
+        update: {},
+        create: {
+            name: 'A Importância da Ética na Inteligência Artificial',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da ética na inteligência artificial (IA), analisando os desafios e oportunidades para garantir que as tecnologias de IA sejam desenvolvidas e utilizadas de forma responsável e ética. A pesquisa buscará investigar os principais dilemas éticos associados à IA, como viés algorítmico, privacidade e transparência, além de explorar as melhores práticas e diretrizes para promover uma IA ética e responsável.',
+        },
+    })
+    const themeTwelve = await prisma.theme.upsert({
+        where: { name: 'A Importância da Educação Ambiental nas Escolas' },
+        update: {},
+        create: {
+            name: 'A Importância da Educação Ambiental nas Escolas',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da educação ambiental nas escolas, analisando os desafios e oportunidades para promover a conscientização ambiental entre os jovens. A pesquisa buscará investigar as melhores práticas e metodologias para implementar programas de educação ambiental nas escolas, além de explorar o papel da educação ambiental na formação de cidadãos mais conscientes e responsáveis em relação ao meio ambiente.',
+        },
+    })
+    const themeThirteen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Saúde Mental no Trabalho' },
+        update: {},
+        create: {
+            name: 'A Importância da Saúde Mental no Trabalho',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da saúde mental no ambiente de trabalho, analisando os desafios e oportunidades para promover o bem-estar psicológico dos colaboradores. A pesquisa buscará investigar os principais fatores que afetam a saúde mental no trabalho, como estresse, burnout e assédio moral, além de explorar as melhores práticas e políticas para promover um ambiente de trabalho saudável e inclusivo.',
+        },
+    })
+    const themeFourteen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Educação Financeira para os Jovens' },
+        update: {},
+        create: {
+            name: 'A Importância da Educação Financeira para os Jovens',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da educação financeira para os jovens, analisando os desafios e oportunidades para promover o conhecimento sobre finanças pessoais entre essa faixa etária. A pesquisa buscará investigar as melhores práticas e metodologias para implementar programas de educação financeira nas escolas e comunidades, além de explorar o papel da educação financeira na formação de cidadãos mais conscientes e responsáveis em relação ao dinheiro.',
+        },
+    })
+    const themeFifteen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Tecnologia na Educação' },
+        update: {},
+        create: {
+            name: 'A Importância da Tecnologia na Educação',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da tecnologia na educação, analisando os desafios e oportunidades para promover o uso de ferramentas tecnológicas no ensino e aprendizagem. A pesquisa buscará investigar as melhores práticas e metodologias para implementar tecnologias educacionais nas escolas, além de explorar o papel da tecnologia na formação de cidadãos mais críticos e preparados para o futuro.',
+        },
+    })
+    const themeSixteen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Empatia na Comunicação' },
+        update: {},
+        create: {
+            name: 'A Importância da Empatia na Comunicação',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da empatia na comunicação, analisando os desafios e oportunidades para promover uma comunicação mais empática e eficaz. A pesquisa buscará investigar as melhores práticas e metodologias para desenvolver habilidades de empatia na comunicação interpessoal, além de explorar o papel da empatia na construção de relacionamentos saudáveis e produtivos.',
+        },
+    })
+    const themeSeventeen = await prisma.theme.upsert({
+        where: { name: 'A Importância da Criatividade na Inovação' },
+        update: {},
+        create: {
+            name: 'A Importância da Criatividade na Inovação',
+            description:
+                'Este trabalho tem como objetivo discutir a importância da criatividade na inovação, analisando os desafios e oportunidades para promover um ambiente criativo e inovador nas empresas. A pesquisa buscará investigar as melhores práticas e metodologias para estimular a criatividade e a inovação, além de explorar o papel da criatividade na solução de problemas e na geração de novas ideias.',
+        },
+    })
     const libraryBook = await prisma.library.upsert({
         where: { title: 'Apostila HTML UFF' },
         update: {},

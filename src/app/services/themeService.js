@@ -1,7 +1,39 @@
 import { revalidatePath } from 'next/cache'
 import db from '@/utils/db'
 
-export async function allThemesService() {
+export async function allThemesService(page, searchTerm, searchType) {
+    try {
+        const where = {}
+        if (searchTerm) {
+            where.name = {
+                contains: searchTerm,
+                mode: 'insensitive',
+            }
+        }
+        if (searchType) {
+            where.type = searchType
+        }
+        const perPage = 8
+        const skip = (page - 1) * perPage
+        const totalItems = await db.theme.count({ where })
+        const totalPages = Math.ceil(totalItems / perPage)
+        const prev = page > 1 ? page - 1 : null
+        const next = page < totalPages ? page + 1 : null
+
+        const themes = await db.theme.findMany({
+            take: perPage,
+            skip,
+            where,
+            orderBy: { createdAt: 'desc' },
+        })
+
+        return { data: themes, prev, next, totalPages }
+    } catch (error) {
+        return { data: [], prev: null, next: null }
+    }
+}
+
+export async function allThemesToSelectedService() {
     try {
         const themes = await db.theme.findMany()
         return { data: themes }

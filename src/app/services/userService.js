@@ -66,6 +66,19 @@ export async function getUserByEmailService(email) {
     }
 }
 
+export async function getUserByRoleTeacherService() {
+    try {
+        const teachers = await db.user.findMany({
+            where: {
+                role: "TEACHER"
+            },
+        })
+        return { data: teachers }
+    } catch (error) {
+        return { data: [] }
+    }
+}
+
 export async function updateUserByIdService(id, validatedData) {
     try {
         const updateUser = await db.user.update({

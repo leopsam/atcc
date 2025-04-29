@@ -69,11 +69,12 @@ export default async function Page({ searchParams }) {
                         </Tooltip>
                     ))}
             </div>
+
             <nav aria-label="Page navigation example ">
-                <ul className="pagination justify-content-center">
+                <ul className="pagination pagination-sm justify-content-center">
                     <li className={`page-item ${!prev && 'disabled'}`}>
                         <Link className="page-link" href={{ pathname: '/student/library/', query: { page: prev, q: searchTerm } }}>
-                            Previous
+                            Anterior
                         </Link>
                     </li>
                     {/* Renderizando dinamicamente os números de páginas */}
@@ -90,7 +91,7 @@ export default async function Page({ searchParams }) {
 
                     <li className={`page-item ${!next && 'disabled'}`}>
                         <Link className="page-link" href={{ pathname: '/student/library/', query: { page: next, q: searchTerm } }}>
-                            Next
+                            Próximo
                         </Link>
                     </li>
                 </ul>
