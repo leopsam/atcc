@@ -1,5 +1,6 @@
 import { revalidatePath } from 'next/cache'
 import db from '@/utils/db'
+import { NextResponse } from 'next/server'
 
 export async function allUsersService() {
     try {
@@ -70,12 +71,38 @@ export async function getUserByRoleTeacherService() {
     try {
         const teachers = await db.user.findMany({
             where: {
-                role: "TEACHER"
+                role: 'TEACHER',
             },
         })
         return { data: teachers }
     } catch (error) {
         return { data: [] }
+    }
+}
+
+export async function getUserByRoleTeacherServiceJson() {
+    try {
+        const teachers = await db.user.findMany({
+            where: {
+                role: 'TEACHER',
+            },
+        })
+        return NextResponse.json({ data: teachers })
+    } catch (error) {
+        return NextResponse.json({ data: [] }, { status: 500 })
+    }
+}
+
+export async function getUserByRoleStudentServiceJson() {
+    try {
+        const students = await db.user.findMany({
+            where: {
+                role: 'STUDENT',
+            },
+        })
+        return NextResponse.json({ data: students })
+    } catch (error) {
+        return NextResponse.json({ data: [] }, { status: 500 })
     }
 }
 

@@ -1,22 +1,12 @@
 'use server'
 import { z } from 'zod'
-import { createTccService } from '@/app/services/tccService'
+import { createTccService, getByUserIdInMembers } from '@/app/services/tccService'
 import { tccSchema } from '@/utils/schemas/tccSchema'
+import { cookies } from 'next/headers'
 
 export async function createTccActions(formData) {
-    console.log('formData', formData)
     try {
-        const formDataObj = {
-            advisor: formData.get('advisor'),
-            themeId: formData.get('themeId'),
-            members: formData.get('members')
-            // members: formData.getAll('members[]'), // Se você estiver enviando um array de membros
-        };
-        console.log('formDataObj', formDataObj)
-        console.log('formData', formData)
-
-
-        //const validatedData = tccSchema.parse(formDataObj)
+        const validatedData = tccSchema.parse(formData)
 
         const result = await createTccService(validatedData)
         return result
@@ -31,5 +21,25 @@ export async function createTccActions(formData) {
         } else {
             return { success: false, message: 'Erro inesperado ao criar Proposta.' }
         }
+    }
+}
+
+export async function checkByUserIdInMembers() {
+    try {
+        const userId = cookies().get('user_id')?.value
+
+        if (!userId) {
+            return { success: false, message: 'Usuário não encontrado.' }
+        }
+
+        const response = await getByUserIdInMembers(userId)
+
+        if (!response.data) {
+            return { success: false }
+        } else {
+            return { success: true }
+        }
+    } catch (error) {
+        return { success: false, message: 'Erro inesperado ao buscar membros.' }
     }
 }

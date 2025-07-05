@@ -1,45 +1,62 @@
-"use client"
+'use client'
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-//import { allThemesToSelectedService } from '@/app/services/themeService'
-//import { getUserByRoleTeacherService } from '@/app/services/userService'
-import ComponentsList from '@/app/components/ComponentsList';
-import { createTccActions } from '@/actions/theme/createTccActions'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { createTccActions, checkByUserIdInMembers } from '@/actions/tcc/createTccActions'
+import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
+import Loading from '../../loading'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function Page() {
-    //const { data: themes } = await allThemesToSelectedService()
-    //const { data: teachers } = await getUserByRoleTeacherService()
-    //const [message, setMessage] = useState("teste")
+    const [tccExists, setTccExists] = useState(false)
+    const [themes, setThemes] = useState([])
+    const [teachers, setTeachers] = useState([])
+    const [students, setStudents] = useState([])
+    const [componentes, setComponentes] = useState([''])
     const router = useRouter()
 
+    useEffect(() => {
+        async function tccAlreadyExists() {
+            const res = await checkByUserIdInMembers()
+            setTccExists(res.success)
+        }
+
+        async function fetchThemes() {
+            const res = await fetch('/api/themes')
+            const json = await res.json()
+            setThemes(json.data)
+        }
+
+        async function fetchTeacher() {
+            const res = await fetch('/api/teacher')
+            const json = await res.json()
+            setTeachers(json.data)
+        }
+        async function fetchStudents() {
+            const res = await fetch('/api/student')
+            const json = await res.json()
+            setStudents(json.data)
+        }
+
+        tccAlreadyExists()
+        fetchThemes()
+        fetchTeacher()
+        fetchStudents()
+    }, [tccExists])
+
     const handleSubmit = async formData => {
-        const formDataObj = Object.fromEntries(formData.entries());
+        const formDataObj = Object.fromEntries(formData.entries())
 
         const data = {
             ...formDataObj,
-            members: componentes, // <-- insere o array do useState aqui
-        };
+            members: componentes,
+        }
         const response = await createTccActions(data)
+
         if (!response.success) {
-            console.log('error')
-            console.log(data)
-            console.log(response.message)
-            console.log(componentes)
-
-            //setMessage(response.message)
-        } else {
-            console.log('sucesso')
-            // setMessage(true)
-
-            setTimeout(() => {
-                router.push('/student/tcc/read')
-            }, 2000)
-
-            toast.success('navegando para tela de proposta...', {
+            toast.error('Todos os campos devem ser informados!', {
                 position: 'bottom-center',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -49,34 +66,73 @@ export default function Page() {
                 progress: undefined,
                 theme: 'light',
             })
+        } else {
+            toast.success('TCC criado com sucesso!', {
+                position: 'bottom-center',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: 'light',
+            })
+
+            setTimeout(() => {
+                router.push('/student/tcc/read')
+            }, 2000)
         }
     }
 
-    const [componentes, setComponentes] = useState(['']);
-
     const adicionarComponente = () => {
-        setComponentes([...componentes, '']);
-    };
+        setComponentes([...componentes, ''])
+    }
 
-    const removerComponente = (index) => {
-        setComponentes(componentes.filter((_, i) => i !== index));
-    };
+    const removerComponente = index => {
+        setComponentes(componentes.filter((_, i) => i !== index))
+    }
 
     const handleChange = (index, value) => {
-        const novos = [...componentes];
-        novos[index] = value;
-        setComponentes(novos);
-    };
+        const novos = [...componentes]
+        novos[index] = value
+        setComponentes(novos)
+    }
+
+    if (tccExists === true) {
+        return (
+            <section className="dashboard">
+                <div className="text-black bg-primary-subtle pt-5 pb-4 px-3">
+                    <h1 className="fs-2">Você já possui um TCC cadastrado.</h1>
+                    <p className="fs-6">
+                        Acesse no menu superior &quot;Proposta&quot;, ou clique no botão abaixo para ser redirecionado.
+                        <br />
+                        <Link className="btn btn-primary my-2" href="/student/tcc/read">
+                            Acesse a pagina de Proposta
+                        </Link>
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
+    if (students.length === 0 || themes.length === 0 || teachers.length === 0) {
+        return <Loading />
+    }
 
     return (
         <section className="dashboard">
             <div className="text-black bg-primary-subtle pt-5 pb-4 px-3">
                 <h1 className="fs-2">Insira as informações do seu TCC</h1>
                 <p className="fs-6">
-                    O cadastro de proposta serve para registrar as informações principais do seu TCC. Nele, você deve informar:<br />
-                    <strong>Orientador:</strong> O professor que irá acompanhar e orientar o seu trabalho.<br />
-                    <strong>Tema:</strong> O assunto ou área principal que o seu TCC irá defender ou desenvolver.<br />
-                    <strong>Componentes:</strong>Os componentes (integrantes) do grupo que participarão do projeto, caso o TCC seja individual, basta cadastrar apenas o seu nome.<br />
+                    O cadastro de proposta serve para registrar as informações principais do seu TCC. Nele, você deve informar:
+                    <br />
+                    <strong>Orientador:</strong> O professor que irá acompanhar e orientar o seu trabalho.
+                    <br />
+                    <strong>Tema:</strong> O assunto ou área principal que o seu TCC irá defender ou desenvolver.
+                    <br />
+                    <strong>Componentes:</strong>Os componentes (integrantes) do grupo que participarão do projeto, caso o TCC seja individual, basta cadastrar
+                    apenas o seu nome.
+                    <br />
                 </p>
             </div>
 
@@ -87,14 +143,14 @@ export default function Page() {
                             Orientador:
                         </label>
                         <select id="advisor" name="advisor" className="form-select mx-2 form-select-sm">
-                            <option value="" defaultValue >Selecione</option>
-                            <option value="teste">teste</option>
-                            {/*  
+                            <option value="" defaultValue>
+                                Selecione
+                            </option>
                             {teachers.map(teacher => (
                                 <option key={teacher.id} value={teacher.id}>
                                     {teacher.name}
                                 </option>
-                            ))}*/}
+                            ))}
                         </select>
                     </div>
 
@@ -103,13 +159,14 @@ export default function Page() {
                             Tema:
                         </label>
                         <select id="themeId" name="themeId" className="form-select mx-2 form-select-sm">
-                            <option value="" defaultValue>Selecione</option>
-                            <option value="99b7b71b-4acb-47f6-ad92-f787ec687bc8">teste</option>
-                            {/* {themes.map(theme => (
+                            <option value="" defaultValue>
+                                Selecione
+                            </option>
+                            {themes.map(theme => (
                                 <option key={theme.id} value={theme.id}>
                                     {theme.name}
                                 </option>
-                            ))}*/}
+                            ))}
                         </select>
                     </div>
 
@@ -126,12 +183,21 @@ export default function Page() {
                             {componentes.map((componente, index) => (
                                 <tr key={index}>
                                     <td>
-                                        <input
-                                            type="text"
-                                            className="form-control mx-2 form-control-sm w-75"
-                                            value={componente}
-                                            onChange={(e) => handleChange(index, e.target.value)}
-                                        />
+                                        <select
+                                            id="student"
+                                            name="student"
+                                            className="form-select mx-2 form-select-sm"
+                                            onChange={e => handleChange(index, e.target.value)}
+                                        >
+                                            <option value="" defaultValue>
+                                                Selecione
+                                            </option>
+                                            {students.map(student => (
+                                                <option key={student.id} value={student.id}>
+                                                    {student.name}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </td>
                                     <td>
                                         <i

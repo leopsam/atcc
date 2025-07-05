@@ -42,7 +42,10 @@ export default async function Page({ searchParams }) {
                             const pageNumber = index + 1
                             return (
                                 <li key={pageNumber} className={`page-item ${currentPage === pageNumber ? 'active' : ''}`}>
-                                    <Link className="page-link" href={{ pathname: '/student/theme/read/', query: { page: pageNumber, q: searchTerm, t: searchType } }}>
+                                    <Link
+                                        className="page-link"
+                                        href={{ pathname: '/student/theme/read/', query: { page: pageNumber, q: searchTerm, t: searchType } }}
+                                    >
                                         {pageNumber}
                                     </Link>
                                 </li>

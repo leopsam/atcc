@@ -1,44 +1,69 @@
+'use client'
+import { getTccInfoByUserIdInMembers } from '@/actions/tcc/readTccActions'
 import ButtonsTable from '@/app/components/ButtonsTable'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function Page() {
+    const [myTcc, setMyTcc] = useState(null)
+
+    useEffect(() => {
+        async function tcc() {
+            const res = await getTccInfoByUserIdInMembers()
+            setMyTcc(res.data)
+        }
+
+        tcc()
+    }, [])
+
+    if (!myTcc) {
+        return (
+            <section className="dashboard">
+                <div className="text-black bg-primary-subtle pt-5 pb-4 px-3">
+                    <h1 className="fs-2">Você ainda não possui TCC cadastrado!</h1>
+                    <p className="fs-6">
+                        O cadastro de proposta serve para registrar as informações principais do seu TCC. <br />
+                        Acesse no menu lateral para &quot;Cadastrar Proposta&quot; ou clique no botão abaixo para ser redirecionado.
+                        <br />
+                        <Link className="btn btn-primary my-2" href="/student/tcc/create">
+                            Acesse a pagina de Cadastrar Proposta
+                        </Link>
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
     return (
         <section className="dashboard">
             <div className="px-4 py-5">
                 <h1 className="text-black fs-4">Imformações TCC</h1>
                 <div className="card">
                     <div className="card-body text-bg-secondary">
-                        <h5 className="card-title">Smart Cities</h5>
+                        <h5 className="card-title">{myTcc.theme}</h5>
                         <p className="card-text">
-                            <strong>Descrição do tema: </strong>Gastar menos e oferecer melhores servicos: esse eh o objetivo das cidades do futuro. Como
-                            conseguir isso? Implementando hardware e softwares de baixo nivel, propondo novas arquiteturas de servico, manipulando grandes bases
-                            de dados e integrando solucoes tecnologicas a outras areas de conhecimento.
+                            <strong>Descrição do tema: </strong>
+                            {myTcc.description}
                         </p>
                     </div>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <strong>Orientador: </strong>Leonardo Sampaio
+                            <strong>Orientador: </strong>
+                            {myTcc.advisor}
+                        </li>
+
+                        <li className="list-group-item">
+                            <strong>Integrantes: </strong>
+                            {myTcc?.members?.join(', ') || 'Carregando...'}
                         </li>
                         <li className="list-group-item">
-                            <strong>Situação do profesor: </strong>
-                            Orientação Aceita
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Integrantes: </strong>Leonardo Pereira, Marieni Cristina
+                            <strong>Cadastro feito em: </strong>
+                            {`${new Date(myTcc.createdAt).toLocaleDateString('pt-BR')} às ${new Date(myTcc.createdAt).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false })}`}
                         </li>
                     </ul>
                     <div className="card-body">
                         <ButtonsTable href={`/adm/tcc/update/${'userId'}`} />
-                    </div>
-                </div>
-
-                <div className="card my-4">
-                    <div className="card-header">AVISO</div>
-                    <div className="card-body">
-                        <p className="card-text m-0">Nesta tela fica as informaçôes do seu tcc, seu tema, professor orientador e integrantes</p>
-                        <p className="card-text m-0">Aqui você pode editar essas informações quando quiser, então TOME CUIDADO!</p>
-                        <p className="card-text m-0">Lembrando que o professor da sua escolha precisa aceitar orienta-lo</p>
-                        <p className="card-text m-0">Caso o professor nao aceite, escolha outro ao editar</p>
                     </div>
                 </div>
             </div>

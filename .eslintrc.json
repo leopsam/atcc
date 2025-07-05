@@ -18,14 +18,6 @@
                 "htmlWhitespaceSensitivity": "ignore"
             }
         ],
-        "import/order": [
-            "error",
-            {
-                "groups": ["builtin", "external", "internal", "sibling", "parent", "index"],
-                "newlines-between": "never",
-                "alphabetize": { "order": "asc", "caseInsensitive": true }
-            }
-        ],
         "padding-line-between-statements": ["error", { "blankLine": "never", "prev": "import", "next": "import" }],
         "no-unused-vars": "warn",
         "no-console": "warn",

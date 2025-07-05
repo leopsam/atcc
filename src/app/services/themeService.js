@@ -1,4 +1,5 @@
 import { revalidatePath } from 'next/cache'
+import { NextResponse } from 'next/server'
 import db from '@/utils/db'
 
 export async function allThemesService(page, searchTerm, searchType) {
@@ -39,6 +40,15 @@ export async function allThemesToSelectedService() {
         return { data: themes }
     } catch (error) {
         return { data: [] }
+    }
+}
+
+export async function allThemesToSelectedServiceJson() {
+    try {
+        const themes = await db.theme.findMany()
+        return NextResponse.json({ data: themes })
+    } catch (error) {
+        return NextResponse.json({ data: [] }, { status: 500 })
     }
 }
 

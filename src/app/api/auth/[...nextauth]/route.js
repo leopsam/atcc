@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt'
 import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import db from '@/utils/db'
+import { cookies } from 'next/headers'
 
 const handler = NextAuth({
     pages: {
@@ -31,6 +32,12 @@ const handler = NextAuth({
                     throw new Error('Usuário e senha inválidos')
                 }
 
+                cookies().set('user_id', user.id, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7, // 7 dias
+                    httpOnly: false, // ⚠️ IMPORTANTE! Para poder ler no front-end
+                })
+
                 return {
                     id: user.id,
                     name: user.name,
@@ -43,6 +50,9 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session, token }) {
+            if (token?.id) {
+                session.user.id = token.id
+            }
             if (token?.matriculation) {
                 session.user.matriculation = token.matriculation
             }
@@ -54,6 +64,7 @@ const handler = NextAuth({
         },
         async jwt({ token, user }) {
             if (user) {
+                token.id = user.id
                 token.matriculation = user.matriculation
                 token.role = user.role
             }
