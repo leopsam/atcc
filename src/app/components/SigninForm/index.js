@@ -40,13 +40,13 @@ export default function LoginForm() {
 
             if (session?.user?.role === 'STUDENT') {
                 setSpinner(false)
-                window.location.href = '/student'
+                window.location.href = '/dashboard/student'
             } else if (session?.user?.role === 'TEACHER') {
                 setSpinner(false)
-                window.location.href = '/teacher'
+                window.location.href = '/dashboard/teacher'
             } else if (session?.user?.role === 'ADMIN') {
                 setSpinner(false)
-                window.location.href = '/adm'
+                window.location.href = '/dashboard/adm'
             } else {
                 setSpinner(false)
                 toast.error('Usuário desconhecido', {

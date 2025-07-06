@@ -28,7 +28,7 @@ export async function getByUserIdInMembers(userId) {
     }
 }
 
-export async function getTccByUserId(userId) {
+export async function getTccByUserIdService(userId) {
     try {
         const response = await db.tcc.findFirst({
             where: {

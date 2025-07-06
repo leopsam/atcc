@@ -10,14 +10,14 @@ export async function middleware(req) {
 
     const { pathname } = req.nextUrl
 
-    if (pathname.startsWith('/student') && role !== 'STUDENT') {
+    if (pathname.startsWith('/dashboard/student') && role !== 'STUDENT') {
         return NextResponse.redirect(new URL('/', req.url))
     }
 
-    if (pathname.startsWith('/teacher') && role !== 'TEACHER') {
+    if (pathname.startsWith('/dashboard/teacher') && role !== 'TEACHER') {
         return NextResponse.redirect(new URL('/', req.url))
     }
-    if (pathname.startsWith('/adm') && role !== 'ADMIN') {
+    if (pathname.startsWith('/dashboard/adm') && role !== 'ADMIN') {
         return NextResponse.redirect(new URL('/', req.url))
     }
 
@@ -25,5 +25,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-    matcher: ['/student/:path*', '/teacher/:path*', '/adm/:path*'],
+    matcher: ['/dashboard/student/:path*', '/dashboard/teacher/:path*', '/dashboard/adm/:path*'],
 }

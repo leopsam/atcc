@@ -2,56 +2,21 @@ import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
 const prisma = new PrismaClient()
 
+/* eslint-disable */
+
 async function main() {
-    const joao = await prisma.user.upsert({
-        where: { username: 'joaosilva' },
-        update: {},
-        create: {
-            matriculation: '20230001',
-            name: 'João Silva',
-            role: 'STUDENT',
-            status: 'ACTIVE',
-            birthDate: new Date('2000-01-15'),
-            cpf: '12345678901',
-            rg: '12345678',
-            address: 'Rua A, 123',
-            phone: '1122334455',
-            email: 'joao.silva@example.com',
-            username: 'joaosilva',
-            password: await bcrypt.hash('password456', 10),
-            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
-        },
-    })
-    const maria = await prisma.user.upsert({
-        where: { username: 'mariasouza' },
-        update: {},
-        create: {
-            matriculation: '20230002',
-            name: 'Maria Souza',
-            role: 'TEACHER',
-            status: 'ACTIVE',
-            birthDate: new Date('1985-05-25'),
-            cpf: '98765432100',
-            rg: '87654321',
-            address: 'Rua B, 456',
-            phone: '11999887766',
-            email: 'maria.souza@example.com',
-            username: 'mariasouza',
-            password: await bcrypt.hash('password456', 10),
-            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
-        },
-    })
+    //Seed de usuario admin
     const adminDefault = await prisma.user.upsert({
         where: { username: 'admin' },
         update: {},
         create: {
-            matriculation: '20230003',
+            matriculation: '20230001',
             name: 'Leonardo Sampaio',
             role: 'ADMIN',
             status: 'ACTIVE',
             birthDate: new Date('1995-09-12'),
-            cpf: '11122233344',
-            rg: '11223344',
+            cpf: '11122233311',
+            rg: '11223311',
             address: 'Rua C, 789',
             phone: '1177665544',
             email: 'leonardo.sampaio@example.com',
@@ -60,17 +25,19 @@ async function main() {
             photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
         },
     })
+
+    //Seed de usuario alunos
     const studentDefault = await prisma.user.upsert({
         where: { username: 'aluno' },
         update: {},
         create: {
-            matriculation: '20230004',
+            matriculation: '20230002',
             name: 'Leonardo P. Sampaio',
             role: 'STUDENT',
             status: 'ACTIVE',
             birthDate: new Date('1995-09-12'),
-            cpf: '11122233355',
-            rg: '11223355',
+            cpf: '11122233322',
+            rg: '11223322',
             address: 'Rua C, 789',
             phone: '1177665544',
             email: 'leonardo.aluno@example.com',
@@ -79,6 +46,46 @@ async function main() {
             photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583169/atcc/z5fggmmbzflbuwwvwkho.webp',
         },
     })
+    const studentHenrique = await prisma.user.upsert({
+        where: { username: 'henrique' },
+        update: {},
+        create: {
+            matriculation: '20230003',
+            name: 'Henrique do Nascimento Sampaio',
+            role: 'STUDENT',
+            status: 'ACTIVE',
+            birthDate: new Date('2000-01-15'),
+            cpf: '11122233333',
+            rg: '11223333',
+            address: 'Rua A, 123',
+            phone: '1122334455',
+            email: 'henrique@example.com',
+            username: 'henrique',
+            password: await bcrypt.hash('henrique123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
+        },
+    })
+    const studentAirton = await prisma.user.upsert({
+        where: { username: 'airton' },
+        update: {},
+        create: {
+            matriculation: '20230004',
+            name: 'Airtinho Sampaio da Silva',
+            role: 'STUDENT',
+            status: 'ACTIVE',
+            birthDate: new Date('1985-05-25'),
+            cpf: '11122233344',
+            rg: '11223344',
+            address: 'Rua B, 456',
+            phone: '11999887766',
+            email: 'airton.senna@example.com',
+            username: 'airton',
+            password: await bcrypt.hash('airton123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728531466/atcc/s9x1zveq4zaepmvr6x1t.jpg',
+        },
+    })
+
+    //Seed de usuario professors
     const teacherDefault = await prisma.user.upsert({
         where: { username: 'professor' },
         update: {},
@@ -88,8 +95,8 @@ async function main() {
             role: 'TEACHER',
             status: 'ACTIVE',
             birthDate: new Date('1995-09-12'),
-            cpf: '11122233366',
-            rg: '11223366',
+            cpf: '11122233355',
+            rg: '11223355',
             address: 'Rua C, 789',
             phone: '1177665544',
             email: 'leonardo.professor@example.com',
@@ -98,6 +105,46 @@ async function main() {
             photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583797/atcc/qchfsbjlzdrajs77l7cm.jpg',
         },
     })
+    const teacherMarieni = await prisma.user.upsert({
+        where: { username: 'marieni' },
+        update: {},
+        create: {
+            matriculation: '20230006',
+            name: 'Marieni Cristina Sampaio',
+            role: 'TEACHER',
+            status: 'ACTIVE',
+            birthDate: new Date('1994-06-06'),
+            cpf: '11122233366',
+            rg: '11223366',
+            address: 'Rua D, 789',
+            phone: '1177665544',
+            email: 'marieni.professor@example.com',
+            username: 'marieni',
+            password: await bcrypt.hash('marieni123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583797/atcc/qchfsbjlzdrajs77l7cm.jpg',
+        },
+    })
+    const teacherCamilla = await prisma.user.upsert({
+        where: { username: 'camilla' },
+        update: {},
+        create: {
+            matriculation: '20230007',
+            name: 'Camilla Pereira Sampaio',
+            role: 'TEACHER',
+            status: 'ACTIVE',
+            birthDate: new Date('1995-09-12'),
+            cpf: '11122233377',
+            rg: '11223377',
+            address: 'Rua C, 789',
+            phone: '1177665544',
+            email: 'camilla.professor@example.com',
+            username: 'camilla',
+            password: await bcrypt.hash('camilla123', 10),
+            photo: 'https://res.cloudinary.com/dqgjhgn3s/image/upload/v1728583797/atcc/qchfsbjlzdrajs77l7cm.jpg',
+        },
+    })
+
+    //Seed de temas
     const themeOne = await prisma.theme.upsert({
         where: { name: 'A Transformação Digital nas Microempresas: Desafios e Oportunidades no Brasil' },
         update: {},
@@ -251,6 +298,8 @@ async function main() {
                 'Este trabalho tem como objetivo discutir a importância da criatividade na inovação, analisando os desafios e oportunidades para promover um ambiente criativo e inovador nas empresas. A pesquisa buscará investigar as melhores práticas e metodologias para estimular a criatividade e a inovação, além de explorar o papel da criatividade na solução de problemas e na geração de novas ideias.',
         },
     })
+
+    //Seed de biblioteca
     const libraryBook = await prisma.library.upsert({
         where: { title: 'Apostila HTML UFF' },
         update: {},
@@ -538,7 +587,6 @@ async function main() {
         },
     })
 
-    // eslint-disable-next-line
     console.log('seed completed successfully!')
 }
 main()
@@ -546,7 +594,6 @@ main()
         await prisma.$disconnect()
     })
     .catch(async e => {
-        // eslint-disable-next-line
         console.error(e)
         await prisma.$disconnect()
         process.exit(1)

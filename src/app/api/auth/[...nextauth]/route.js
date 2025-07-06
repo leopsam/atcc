@@ -34,8 +34,8 @@ const handler = NextAuth({
 
                 cookies().set('user_id', user.id, {
                     path: '/',
-                    maxAge: 60 * 60 * 24 * 7, // 7 dias
-                    httpOnly: false, // ⚠️ IMPORTANTE! Para poder ler no front-end
+                    maxAge: 60 * 60 * 24 * 7,
+                    httpOnly: false,
                 })
 
                 return {
