@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getUserByRoleTeacherServiceJson } from '@/app/services/userService'
 import { getByUserIdInMembers } from '@/app/services/tccService'
-import { getTccInfoByUserIdInMembers } from '@/app/actions/tcc/readTccActions'
+import { getTccInfoByUserIdInMembers } from '@/app/controllers/tcc/readTccActions'
 
 export async function GET() {
     try {
