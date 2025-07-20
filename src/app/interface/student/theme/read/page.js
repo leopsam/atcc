@@ -9,7 +9,7 @@ export default async function Page({ searchParams }) {
 
     return (
         <section className="dashboard">
-            <div className="px-4 py-5">
+            <div className="px-4 pt-5 ">
                 <h1 className="text-black fs-4">Temas</h1>
 
                 <table className="table table-striped whi">
@@ -22,7 +22,7 @@ export default async function Page({ searchParams }) {
                     <tbody>
                         {themes &&
                             themes.map(theme => (
-                                <tr key={theme.id}>
+                                <tr key={theme.id} className="align-middle" style={{ height: '75px' }}>
                                     <td>{theme.name}</td>
                                     <td>{theme.description}</td>
                                 </tr>
@@ -30,10 +30,10 @@ export default async function Page({ searchParams }) {
                     </tbody>
                 </table>
 
-                <nav aria-label="Page navigation example ">
+                <nav aria-label="Page navigation example position-absolute bottom-0 start-50 translate-middle-x">
                     <ul className="pagination pagination-sm justify-content-center">
                         <li className={`page-item ${!prev && 'disabled'}`}>
-                            <Link className="page-link" href={{ pathname: '/student/theme/read/', query: { page: prev, q: searchTerm } }}>
+                            <Link className="page-link" href={{ pathname: '/interface/student/theme/read/', query: { page: prev, q: searchTerm } }}>
                                 Anterior
                             </Link>
                         </li>
@@ -44,7 +44,7 @@ export default async function Page({ searchParams }) {
                                 <li key={pageNumber} className={`page-item ${currentPage === pageNumber ? 'active' : ''}`}>
                                     <Link
                                         className="page-link"
-                                        href={{ pathname: '/student/theme/read/', query: { page: pageNumber, q: searchTerm, t: searchType } }}
+                                        href={{ pathname: '/interface/student/theme/read/', query: { page: pageNumber, q: searchTerm, t: searchType } }}
                                     >
                                         {pageNumber}
                                     </Link>
@@ -53,7 +53,7 @@ export default async function Page({ searchParams }) {
                         })}
 
                         <li className={`page-item ${!next && 'disabled'}`}>
-                            <Link className="page-link" href={{ pathname: '/student/theme/read/', query: { page: next, q: searchTerm } }}>
+                            <Link className="page-link" href={{ pathname: '/interface/student/theme/read/', query: { page: next, q: searchTerm } }}>
                                 Próximo
                             </Link>
                         </li>

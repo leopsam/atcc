@@ -14,7 +14,7 @@ export async function allThemesService(page, searchTerm, searchType) {
         if (searchType) {
             where.type = searchType
         }
-        const perPage = 8
+        const perPage = 7
         const skip = (page - 1) * perPage
         const totalItems = await db.theme.count({ where })
         const totalPages = Math.ceil(totalItems / perPage)

@@ -12,7 +12,7 @@ export async function allLibraryService(page, searchTerm, searchType) {
         if (searchType) {
             where.type = searchType
         }
-        const perPage = 12
+        const perPage = 25
         const skip = (page - 1) * perPage
         const totalItems = await db.library.count({ where })
         const totalPages = Math.ceil(totalItems / perPage)

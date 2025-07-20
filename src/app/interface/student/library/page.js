@@ -73,7 +73,7 @@ export default async function Page({ searchParams }) {
             <nav aria-label="Page navigation example ">
                 <ul className="pagination pagination-sm justify-content-center">
                     <li className={`page-item ${!prev && 'disabled'}`}>
-                        <Link className="page-link" href={{ pathname: '/student/library/', query: { page: prev, q: searchTerm } }}>
+                        <Link className="page-link" href={{ pathname: '/interface/student/library/', query: { page: prev, q: searchTerm } }}>
                             Anterior
                         </Link>
                     </li>
@@ -82,7 +82,10 @@ export default async function Page({ searchParams }) {
                         const pageNumber = index + 1
                         return (
                             <li key={pageNumber} className={`page-item ${currentPage === pageNumber ? 'active' : ''}`}>
-                                <Link className="page-link" href={{ pathname: '/student/library/', query: { page: pageNumber, q: searchTerm, t: searchType } }}>
+                                <Link
+                                    className="page-link"
+                                    href={{ pathname: '/interface/student/library/', query: { page: pageNumber, q: searchTerm, t: searchType } }}
+                                >
                                     {pageNumber}
                                 </Link>
                             </li>
@@ -90,7 +93,7 @@ export default async function Page({ searchParams }) {
                     })}
 
                     <li className={`page-item ${!next && 'disabled'}`}>
-                        <Link className="page-link" href={{ pathname: '/student/library/', query: { page: next, q: searchTerm } }}>
+                        <Link className="page-link" href={{ pathname: '/interface/student/library/', query: { page: next, q: searchTerm } }}>
                             Próximo
                         </Link>
                     </li>
