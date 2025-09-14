@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getUserByRoleStudentServiceJson } from '@/app/services/userService'
+import { getUserByRoleStudentServiceJson } from '@/server/services/userService'
 
 export async function GET() {
     try {

@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
-import removeUserActions from '@/app/controllers/user/removeUserActions'
+import removeUserActions from '@/server/controllers/user/removeUserActions'
 
 export default function Page({ params }) {
     const router = useRouter()

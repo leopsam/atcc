@@ -1,8 +1,8 @@
 'use server'
 import bcrypt from 'bcrypt'
 import { z } from 'zod'
-import cloudinary from '../../../cloudinary'
-import { createUserService } from '@/app/services/userService'
+import cloudinary from '../../../../cloudinary'
+import { createUserService } from '@/server/services/userService'
 import { userSchema } from '@/utils/schemas/userSchema'
 import userDefault from '@/utils/userDefault'
 

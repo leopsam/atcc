@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { allThemesToSelectedServiceJson } from '@/app/services/themeService'
+import { allThemesToSelectedServiceJson } from '@/server/services/themeService'
 
 export async function GET() {
     try {

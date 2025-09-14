@@ -1,5 +1,5 @@
 'use server'
-import { deleteUserByIdService } from '@/app/services/userService'
+import { deleteUserByIdService } from '@/server/services/userService'
 
 export default async function removeUserActions(id) {
     try {

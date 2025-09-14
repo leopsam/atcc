@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import ButtonBack from '@/app/components/ButtonBack'
-import { getUserByIdService } from '@/app/services/userService'
+import { getUserByIdService } from '@/server/services/userService'
 
 export default async function getUserById({ params }) {
     const { data: user } = await getUserByIdService(params.id)

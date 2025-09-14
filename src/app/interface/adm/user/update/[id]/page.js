@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { updateUserActions } from '@/app/controllers/user/updateUserActions'
+import { updateUserActions } from '@/server/controllers/user/updateUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 

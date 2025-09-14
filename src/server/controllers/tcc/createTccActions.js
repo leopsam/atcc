@@ -1,6 +1,6 @@
 'use server'
 import { z } from 'zod'
-import { createTccService, getByUserIdInMembers } from '@/app/services/tccService'
+import { createTccService, getByUserIdInMembers } from '@/server/services/tccService'
 import { tccSchema } from '@/utils/schemas/tccSchema'
 import { cookies } from 'next/headers'
 

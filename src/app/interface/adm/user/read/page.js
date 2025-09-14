@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import ButtonsTable from '@/app/components/ButtonsTable'
-import { allUsersService } from '@/app/services/userService'
+import { allUsersService } from '@/server/services/userService'
 
 export default async function Page() {
     const { data: users } = await allUsersService()

@@ -1,5 +1,5 @@
 import ButtonsTable from '@/app/components/ButtonsTable'
-import { allThemesService } from '@/app/services/themeService'
+import { allThemesService } from '@/server/services/themeService'
 
 export default async function Page() {
     const { data: themes } = await allThemesService()

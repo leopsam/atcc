@@ -1,5 +1,5 @@
 'use server'
-import { deleteThemeByIdService } from '@/app/services/themeService'
+import { deleteThemeByIdService } from '@/server/services/themeService'
 
 export default async function removeThemeActions(id) {
     try {
