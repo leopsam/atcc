@@ -2,7 +2,7 @@
 import bcrypt from 'bcrypt'
 import { z } from 'zod'
 import cloudinary from '../../../../cloudinary'
-import { getUserByEmailService, updateUserByIdService } from '@/app/services/userService'
+import { getUserByEmailService, updateUserByIdService } from '@/server/services/userService'
 import { profileSchema } from '@/utils/schemas/profileSchema'
 
 export async function settingsUserActions(email, formData) {

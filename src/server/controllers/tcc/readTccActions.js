@@ -1,7 +1,7 @@
 'use server'
-import { getTccByUserIdService } from '@/app/services/tccService'
-import { getThemeByIdService } from '@/app/services/themeService'
-import { getUserByIdService } from '@/app/services/userService'
+import { getTccByUserIdService } from '@/server/services/tccService'
+import { getThemeByIdService } from '@/server/services/themeService'
+import { getUserByIdService } from '@/server/services/userService'
 import { cookies } from 'next/headers'
 
 export async function getTccInfoByUserIdInMembersAction() {

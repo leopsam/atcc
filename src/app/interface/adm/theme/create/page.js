@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { createThemeActions } from '@/app/controllers/theme/createThemeActions'
+import { createThemeActions } from '@/server/controllers/theme/createThemeActions'
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 

@@ -2,7 +2,7 @@
 import { signOut } from 'next-auth/react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { settingsUserActions } from '@/appcontrollers/user/settingsUserActions'
+import { settingsUserActions } from '@/server/controllers/user/settingsUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 import ChangePassword from '@/app/components/ChangePassword'

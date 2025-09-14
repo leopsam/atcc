@@ -1,5 +1,5 @@
 'use client'
-import { getTccInfoByUserIdInMembersAction } from '@/app/controllers/tcc/readTccActions'
+import { getTccInfoByUserIdInMembersAction } from '@/server/controllers/tcc/readTccActions'
 import ButtonsTable from '@/app/components/ButtonsTable'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Link from 'next/link'

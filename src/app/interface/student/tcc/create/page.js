@@ -2,7 +2,7 @@
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { createTccActions, checkByUserIdInMembers } from '@/app/controllers/tcc/createTccActions'
+import { createTccActions, checkByUserIdInMembers } from '@/server/controllers/tcc/createTccActions'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Loading from '../../loading'

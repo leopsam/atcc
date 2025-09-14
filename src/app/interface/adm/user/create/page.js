@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { createUserActions } from '@/app/controllers/user/createUserActions'
+import { createUserActions } from '@/server/controllers/user/createUserActions'
 import ButtonBack from '@/app/components/ButtonBack'
 import ButtonSubmit from '@/app/components/ButtonSubmit'
 import InputImageBase64 from '@/app/components/ImageBase64'

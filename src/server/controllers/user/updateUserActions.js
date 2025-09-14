@@ -1,7 +1,7 @@
 'use server'
 import bcrypt from 'bcrypt'
 import { z } from 'zod'
-import { getUserByIdService, updateUserByIdService } from '@/app/services/userService'
+import { getUserByIdService, updateUserByIdService } from '@/server/services/userService'
 import { userSchema } from '@/utils/schemas/userSchema'
 
 export async function updateUserActions(id, formData) {

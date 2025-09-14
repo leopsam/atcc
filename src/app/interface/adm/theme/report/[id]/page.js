@@ -1,5 +1,5 @@
 import ButtonBack from '@/app/components/ButtonBack'
-import { getThemeByIdService } from '@/app/services/themeService'
+import { getThemeByIdService } from '@/server/services/themeService'
 
 export default async function getUserById({ params }) {
     const { data: theme } = await getThemeByIdService(params.id)

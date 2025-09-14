@@ -1,7 +1,7 @@
 import { Tooltip } from '@nextui-org/tooltip'
 import Image from 'next/image'
 import Link from 'next/link'
-import { allLibraryService } from '@/app/services/libraryService'
+import { allLibraryService } from '@/server/services/libraryService'
 
 export default async function Page({ searchParams }) {
     const currentPage = parseInt(searchParams?.page || 1)

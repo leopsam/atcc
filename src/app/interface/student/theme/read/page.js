@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { allThemesService } from '@/app/services/themeService'
+import { allThemesService } from '@/server/services/themeService'
 
 export default async function Page({ searchParams }) {
     const currentPage = parseInt(searchParams?.page || 1)
