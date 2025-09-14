@@ -3,24 +3,48 @@ import ButtonSubmit from '@/app/components/ButtonSubmit'
 import { useEffect, useState } from 'react'
 
 export default function Page() {
-    const [steps, setSteps] = useState()
+    const [steps, setSteps] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [hasError, setHasError] = useState(false)
 
     useEffect(() => {
-        async function AllSteps() {
-            const res = await fetch('/api/steps')
-            const json = await res.json()
-            setSteps(json.data)
+        async function allSteps() {
+            try {
+                const res = await fetch('/api/steps')
+                if (!res.ok) {
+                    throw new Error('Failed to fetch steps')
+                }
+
+                const data = await res.json().catch(() => ({ data: [] }))
+                setSteps(data.data || [])
+            } catch (_error) {
+                setHasError(true)
+                setSteps([])
+            } finally {
+                setIsLoading(false)
+            }
         }
 
-        AllSteps()
+        allSteps()
     }, [])
 
-    if (!steps) {
+    if (isLoading) {
         return (
             <section className="dashboard">
                 <div className="px-4 py-5">
                     <h1 className="text-black fs-4">Etapas</h1>
-                    <p className="text-muted">Nenhuma etapa encontrada.</p>
+                    <p className="text-muted">Carregando...</p>
+                </div>
+            </section>
+        )
+    }
+
+    if (hasError || steps.length === 0) {
+        return (
+            <section className="dashboard">
+                <div className="px-4 py-5">
+                    <h1 className="text-black fs-4">Etapas</h1>
+                    <p className="text-muted">{hasError ? 'Erro ao carregar etapas.' : 'Nenhuma etapa encontrada.'}</p>
                 </div>
             </section>
         )
